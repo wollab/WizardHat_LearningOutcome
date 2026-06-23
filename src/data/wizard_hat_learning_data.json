@@ -1,0 +1,1960 @@
+[
+  {
+    "card_no": "1",
+    "category": "Conflict",
+    "nameTh": "แข่งกันเอง",
+    "mechanic_name": "Competitive",
+    "mechanic_description": "แข่งขันกันหาผู้ชนะ อาจมีผู้ชนะมากกว่าหนึ่งคนก็ได้",
+    "examples": [
+      "Monopoly",
+      "Ultimate Werewolf",
+      "Catan",
+      "Spyfall",
+      "Splendor"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 1,
+      "collaboration": 1,
+      "empathy": 0,
+      "self_management": 0,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 1
+    },
+    "skill_rationale": "Competitive structure creates pressure, but the skill profile mostly comes from other mechanics.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "comparative evaluation, timing, and opponent-aware prioritization",
+      "social": "indirect competition; direct interaction depends on the rest of the system",
+      "emotional": "performance pressure and status comparison",
+      "observable_behaviors": "monitoring rank, racing for advantage, blocking, optimizing against rivals",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "2",
+    "category": "Conflict",
+    "nameTh": "ช่วยกันแก้ปัญหา",
+    "mechanic_name": "Co-Operation",
+    "mechanic_description": "ร่วมมือกันเล่น แพ้หรือชนะด้วยกันทั้งหมด",
+    "examples": [
+      "Pandemic",
+      "Spirit Island",
+      "Hanabi",
+      "Gloomhaven",
+      "The crew"
+    ],
+    "skills": {
+      "problem_solving": 2,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 2,
+      "collaboration": 3,
+      "empathy": 1,
+      "self_management": 0,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 2
+    },
+    "skill_rationale": "Strong bridge to collaboration, but not all co-op games produce empathy.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "joint prioritization and shared problem framing",
+      "social": "high coordination and mutual adjustment",
+      "emotional": "shared responsibility and trust",
+      "observable_behaviors": "coordinating, helping, planning together, covering each other's gaps",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "3",
+    "category": "Conflict",
+    "nameTh": "แบ่งทีมแข่งกัน",
+    "mechanic_name": "Team",
+    "mechanic_description": "แบ่งผู้เล่นเป็นทีม เพื่อแข่งขันกัน",
+    "examples": [
+      "Codenames",
+      "Captain Sonar",
+      "War of the ring",
+      "Saboteur 2"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 2,
+      "collaboration": 2,
+      "empathy": 1,
+      "self_management": 0,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 0,
+      "respect_for_diversity": 0,
+      "participation": 2
+    },
+    "skill_rationale": "Team structure raises collaboration faster than pure competition.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "joint planning with opponent prediction",
+      "social": "high in-team coordination",
+      "emotional": "identity, trust, and pressure not to let the group down",
+      "observable_behaviors": "sharing intent, interpreting teammates, distributing roles",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "4",
+    "category": "Conflict",
+    "nameTh": "เล่นคนเดียวแก้โจทย์",
+    "mechanic_name": "Solo, Player vs System",
+    "mechanic_description": "เกมที่เล่นได้คนเดียว",
+    "examples": [
+      "Sudoku",
+      "Orchard",
+      "Friday",
+      "Mage Knight",
+      "Gloomhaven",
+      "Leaving Earth"
+    ],
+    "skills": {
+      "problem_solving": 2,
+      "creativity": 0,
+      "critical_thinking": 2,
+      "communication": 1,
+      "collaboration": 1,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 1
+    },
+    "skill_rationale": "Useful for cognitive skill activation, not social skill claims.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "independent analysis and self-correction",
+      "social": "minimal",
+      "emotional": "self-reliance and persistence",
+      "observable_behaviors": "testing plans, revising after failure, managing your own tempo",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "5",
+    "category": "Order",
+    "nameTh": "เล่นทีละคน",
+    "mechanic_name": "Fixed Turn Order",
+    "mechanic_description": "เล่นไปทีละคนตามลำดับที่กำหนดไว้ตั้งแต่แรกไปจนจบเกม เช่น A ไป B ไป C แล้ววนกลับมา A",
+    "examples": [
+      "Slave",
+      "Uno",
+      "Love Letter",
+      "Ticket to Ride",
+      "Splendor",
+      "Point salad"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Usually a modifier, not a strong skill source by itself.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "short-horizon sequencing",
+      "social": "predictable timing for others to react",
+      "emotional": "low-medium pacing pressure",
+      "observable_behaviors": "timing choices, anticipating known turn windows",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "6",
+    "category": "Order",
+    "nameTh": "เล่นไปพร้อมๆ กัน",
+    "mechanic_name": "Simultaneous Action Selection",
+    "mechanic_description": "ผู้เล่นทุกคนทำแอคชั่นไปพร้อมๆกัน ดำเนินเกมไปพร้อมๆ กัน",
+    "examples": [
+      "Dixit",
+      "Sushi Go!",
+      "โอน้อยออก",
+      "Incan Gold",
+      "Ultimate Werewolf",
+      "คำต้องห้าม"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 0,
+      "collaboration": 1,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "The skill impact depends heavily on whether the game is cooperative, social, or tactical.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "anticipation and parallel evaluation",
+      "social": "can be low or high depending on coordination",
+      "emotional": "uncertainty and timing pressure",
+      "observable_behaviors": "committing under uncertainty, predicting others, synchronizing",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "7",
+    "category": "Order",
+    "nameTh": "ไม่มีรอบ",
+    "mechanic_name": "Real-Time",
+    "mechanic_description": "ไม่กำหนดลำดับการเล่น ใครเร็วใครได้   ผู้เล่นแต่ละคนเล่นได้อย่างอิสระ แข่งกับเวลา ได้ใช้สัญชาตญาณ",
+    "examples": [
+      "Spot It!",
+      "Kitchen Rush",
+      "Geistes Blitz",
+      "SET",
+      "Lotto"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 2,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 1
+    },
+    "skill_rationale": "Real-time pressure changes mindset more than it proves deep understanding.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "fast prioritization and intuitive response",
+      "social": "can require rapid coordination",
+      "emotional": "high urgency and stress",
+      "observable_behaviors": "making quick calls, reacting immediately, coping with overload",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "8",
+    "category": "Order",
+    "nameTh": "ลำดับเปลี่ยนตามเงื่อนไข",
+    "mechanic_name": "Dynamics Turn Order",
+    "mechanic_description": "ลำดับการเล่นเปลี่ยนแปลงได้ตามเงื่อนไขในแต่ละรอบ ผู้เล่นแต่ละคนมีโอกาสเป็น   ผู้เล่นคนแรกได้",
+    "examples": [
+      "Pizza Master",
+      "Power Grid",
+      "Terraforming Mars",
+      "Stone Age"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Strong order card because order itself becomes a meaningful decision.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "timing and opportunity-cost reasoning",
+      "social": "indirect competition over tempo",
+      "emotional": "medium tension around timing",
+      "observable_behaviors": "sacrificing speed for value, planning around later turns",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "14",
+    "category": "Reward",
+    "nameTh": "ทำได้คนแรกชนะ",
+    "mechanic_name": "Race",
+    "mechanic_description": "ผู้ชนะคือ ผู้ที่ถึงเป้าหมายได้เป็นคนแรก",
+    "examples": [
+      "บันไดงู",
+      "Catan",
+      "Machi Koro",
+      "Istanbul",
+      "Port Royal",
+      "Cryptid"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 1
+    },
+    "skill_rationale": "Useful for mindset shaping: move now, refine less.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "fast prioritization over full optimization",
+      "social": "position awareness against opponents",
+      "emotional": "urgency and tempo pressure",
+      "observable_behaviors": "choosing speed, sacrificing completeness, pushing progress",
+      "reward_mindset_effect": "reinforces a fast-action mindset and habitual speed under pressure",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "15",
+    "category": "Reward",
+    "nameTh": "ผู้เหลือรอด",
+    "mechanic_name": "Player Elimination",
+    "mechanic_description": "ผู้เล่นที่ถูกคัดออกจะไม่สามารถเล่นต่อได้ ผู้รอดจนจบเกมคือผู้ชนะ",
+    "examples": [
+      "Ultimate Werewolf",
+      "Monopoly",
+      "Love Letter",
+      "King of Tokyo",
+      "Bang!"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Do not overclaim learning value from elimination alone.",
+    "skill_confidence": "low",
+    "demands": {
+      "cognitive": "threat assessment",
+      "social": "can create exclusion and harsh table dynamics",
+      "emotional": "high punishment and frustration risk",
+      "observable_behaviors": "avoiding lethal mistakes, targeting vulnerability",
+      "reward_mindset_effect": "reinforces survival and threat awareness",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "16",
+    "category": "Reward",
+    "nameTh": "เก็บแต้มมากที่สุดชนะ",
+    "mechanic_name": "Victory Points",
+    "mechanic_description": "ผู้ชนะคือ ผู้ที่ทำคะแนนได้มากที่สุด",
+    "examples": [
+      "Ticket to Ride",
+      "Catan",
+      "Splendor",
+      "Carcassonne",
+      "Wingspan"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 2,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Good reward card for analysis-heavy games.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "analytical optimization and value estimation",
+      "social": "usually low unless scoring is interactive",
+      "emotional": "medium pressure to maximize efficiency",
+      "observable_behaviors": "evaluating worth, optimizing sequences, planning for payoff",
+      "reward_mindset_effect": "reinforces an efficiency-and-analysis mindset more than a speed mindset",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "9",
+    "category": "Ending",
+    "nameTh": "มีรอบจบแน่นอน",
+    "mechanic_name": "Fixed Number of Rounds",
+    "mechanic_description": "เกมจบเมื่อ เล่นวนจนครบจำนวนรอบที่กำหนดไว้ มักจะมีอุปกรณ์เพื่อบอกจำนวนรอบ",
+    "examples": [
+      "Wishlist",
+      "Modern Art",
+      "Wingspan",
+      "Agricola",
+      "Cartographers",
+      "Sushi go!"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 0,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "External pressure that changes pacing decisions.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "backward planning",
+      "social": "low",
+      "emotional": "countdown pressure",
+      "observable_behaviors": "pacing resources, preserving late-game options",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "a known horizon that shapes planning and risk appetite",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "10",
+    "category": "Ending",
+    "nameTh": "จบเมื่อของหมด",
+    "mechanic_name": "Exhausting Resources",
+    "mechanic_description": "เกมจบเมื่อ เล่นจนทรัพยากรที่กำหนดไว้หมดลง เช่น การ์ดหมด หรือทรัพยากรกลางหมด",
+    "examples": [
+      "Evolution",
+      "Ticket to Ride",
+      "Pandemic",
+      "Carcassonne",
+      "No Thanks!",
+      "For Sale"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Important ending card because it changes the shape of opportunity.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "scarcity reasoning and timing",
+      "social": "can produce competition over depletion",
+      "emotional": "resource pressure",
+      "observable_behaviors": "accelerating the end, conserving resources, exploiting depletion timing",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "scarcity becomes an external pressure that shapes when to act and when to wait",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "11",
+    "category": "Ending",
+    "nameTh": "เวลาหมดจบเกม",
+    "mechanic_name": "Elapsed Real Time Ending",
+    "mechanic_description": "เกมจบเมื่อ เล่นจนครบตามเวลาที่กำหนดเอาไว้",
+    "examples": [
+      "5-Minute Dungeon",
+      "Kitchen Rush",
+      "Exit",
+      "FUSE",
+      "Two Rooms and a Boom"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 2,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Usually a pressure modifier, not a learning claim by itself.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "speed filtering",
+      "social": "can intensify coordination",
+      "emotional": "time stress",
+      "observable_behaviors": "acting before perfect certainty, simplifying decisions, coping with urgency",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "time becomes the external pressure that narrows analysis and raises urgency",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "12",
+    "category": "Ending",
+    "nameTh": "เป้าหมายสำเร็จจบเกม",
+    "mechanic_name": "Completing Targets",
+    "mechanic_description": "เกมจบเมื่อ มีผู้เล่นหรือทีมทำตามเป้าหมายของเกมได้สำเร็จตามที่กำหนดไว้",
+    "examples": [
+      "Avalon",
+      "Catan",
+      "Codenames",
+      "Terraforming Mars",
+      "Forbidden Island"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 1
+    },
+    "skill_rationale": "Useful reward structure for mission logic, but still depends on the surrounding mechanics.",
+    "skill_confidence": "medium-high",
+    "demands": {
+      "cognitive": "goal alignment and milestone reasoning",
+      "social": "varies",
+      "emotional": "goal pressure",
+      "observable_behaviors": "working toward stated objectives, aligning decisions to mission",
+      "reward_mindset_effect": "reinforces target-oriented planning and concrete objective focus",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "13",
+    "category": "Ending",
+    "nameTh": "เกิดเงื่อนไขครบจบเกม",
+    "mechanic_name": "Fixed Number of Events",
+    "mechanic_description": "เกมจบเมื่อ เกมเกิดเงื่อนไขครบตามที่กำหนดไว้",
+    "examples": [
+      "Pandemic",
+      "High Society",
+      "Medium",
+      "Suburbia"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 0,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Mostly a structural pressure source.",
+    "skill_confidence": "low-medium",
+    "demands": {
+      "cognitive": "event pacing awareness",
+      "social": "low",
+      "emotional": "uncertain countdown pressure",
+      "observable_behaviors": "tracking triggers, planning around known event count",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "external event count shapes urgency and timing",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "42",
+    "category": "Twist",
+    "nameTh": "สืบสวน / ปิดบังข้อมูล",
+    "mechanic_name": "Deduction, Hidden Information",
+    "mechanic_description": "มีข้อมูลบางส่วนเป็นความลับ ผู้เล่นต้องหาข้อมูล และวิเคราะห์จากข้อมูลที่มี เพื่อให้ได้คำตอบ",
+    "examples": [
+      "Cryptid",
+      "Turing Machine",
+      "Love Letter",
+      "Ultimate Werewolf",
+      "Coup"
+    ],
+    "skills": {
+      "problem_solving": 2,
+      "creativity": 0,
+      "critical_thinking": 3,
+      "communication": 1,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "One of the strongest direct bridges to critical thinking.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "hypothesis testing and evidence evaluation",
+      "social": "may include reading others' signals",
+      "emotional": "uncertainty and revision pressure",
+      "observable_behaviors": "forming hypotheses, eliminating possibilities, testing clues",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "43",
+    "category": "Twist",
+    "nameTh": "จับคู่ / ทำตาม",
+    "mechanic_name": "Matching, Follow the Pattern",
+    "mechanic_description": "บังคับให้สิ่งที่ทำได้ต้องเหมือนกับสิ่งที่ผู้เล่นก่อนหน้าทำ เช่น ต้องลงการ์ดที่มีสัญลักษณ์หรือสีเหมือนกับไพ่ก่อนหน้า",
+    "examples": [
+      "Uno",
+      "Domino",
+      "Memoarrr",
+      "Spot It!",
+      "SET",
+      "Cheating Moth"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 1
+    },
+    "skill_rationale": "Usually procedural unless layered with more complex consequence.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "pattern recognition and rule compliance",
+      "social": "low",
+      "emotional": "low-medium attentional pressure",
+      "observable_behaviors": "spotting matches, continuing patterns, obeying constraints",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "44",
+    "category": "Twist",
+    "nameTh": "ปิดหู ปิดตา ปิดปาก",
+    "mechanic_name": "Communication Limits",
+    "mechanic_description": "จำกัดการสื่อสารของผู้เล่น เช่น ปิดตา ห้ามพูด ห้ามจับ บังคับท่าทาง หรือสื่อสารด้วยข้อกำหนดพิเศษ",
+    "examples": [
+      "The Crew",
+      "Hanabi",
+      "Magic Maze",
+      "The Mind",
+      "Just One"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 2,
+      "collaboration": 2,
+      "empathy": 1,
+      "self_management": 1,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 2
+    },
+    "skill_rationale": "Excellent bridge for communication, but empathy depends on whether perspective-taking is truly required.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "signal selection and inference",
+      "social": "high structured coordination",
+      "emotional": "tension from imperfect expression",
+      "observable_behaviors": "compressing meaning, reading partial signals, aligning under silence or rules",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "45",
+    "category": "Twist",
+    "nameTh": "ลุ้นผลลัพธ์",
+    "mechanic_name": "Output Randomness",
+    "mechanic_description": "สุ่มผลลัพธ์หลังตัดสินใจ ลุ้นโชค เช่น เปิดแผนที่ ทอยเต๋าเดิน กล่องสุ่ม หรือลุ้นของจากถุง",
+    "examples": [
+      "จับฉลาก",
+      "Monopoly",
+      "Camel Up",
+      "Catan",
+      "Port Royal",
+      "Clank!"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Randomness alone does not prove resilience.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "risk anticipation",
+      "social": "low",
+      "emotional": "luck tension",
+      "observable_behaviors": "committing under uncertainty, recovering from variance",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "46",
+    "category": "Twist",
+    "nameTh": "สุ่มเหตุการณ์",
+    "mechanic_name": "Event",
+    "mechanic_description": "สุ่มเหตุการณ์ที่เกิดขึ้นแบบคาดเดาไม่ได้ เป็นเงื่อนไขที่ผู้เล่นต้องทำตาม",
+    "examples": [
+      "Monopoly",
+      "Dead of Winter",
+      "Arkham Horror",
+      "Robinson Crusoe",
+      "Pandemic"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 2,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Useful for resilience only when players can meaningfully adapt.",
+    "skill_confidence": "medium-high",
+    "demands": {
+      "cognitive": "re-planning",
+      "social": "varies",
+      "emotional": "disruption and loss of control",
+      "observable_behaviors": "adjusting to shocks, revising priorities, responding to external change",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "47",
+    "category": "Twist",
+    "nameTh": "เปิดการ์ดวัดใจ",
+    "mechanic_name": "Push your luck",
+    "mechanic_description": "วัดใจกับการเปิดการ์ดกองกลาง ว่าจะไปต่อหรือพอแล้ว หากไปต่อมีโอกาส   ได้ผลตอบแทนมากขึ้น แต่ก็เสี่ยงมากขึ้น",
+    "examples": [
+      "Poker",
+      "Clank!",
+      "Port Royal",
+      "Incan Gold",
+      "Welcome to the Dungeon"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 2,
+      "resilience": 2,
+      "negotiation": 0,
+      "decision_making": 3,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Strong bridge because the mechanic itself creates trade-off and consequence.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "risk-return comparison",
+      "social": "usually low",
+      "emotional": "temptation, fear, and self-regulation",
+      "observable_behaviors": "stopping, pressing on, weighing safety against reward",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "48",
+    "category": "Twist",
+    "nameTh": "ใช้ความจำ",
+    "mechanic_name": "Memory",
+    "mechanic_description": "ใช้ความจำเปิดหาการ์ดหรืออุปกรณ์ที่ซ่อนอยู่ให้ได้ตามเงื่อนไข เช่น เปิดคู่ได้คะแนน เปิดสัญลักษณ์ถูกเดินได้ หรือเปิดผิดโดนลงโทษ",
+    "examples": [
+      "Memoarrr",
+      "Hanabi",
+      "Chicken Cha Cha Cha",
+      "Codenames",
+      "Pengoloo"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Memory supports cognition, but not broad transferable-skill claims by itself.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "recall and information tracking",
+      "social": "low",
+      "emotional": "light performance pressure",
+      "observable_behaviors": "remembering locations, past signals, or prior states",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "50",
+    "category": "Twist",
+    "nameTh": "กฎเปลี่ยนระหว่างเกม",
+    "mechanic_name": "Rule Changing",
+    "mechanic_description": "เปลี่ยนเงื่อนไขการเล่นหรือเงื่อนไขการชนะของเกมในระหว่างเล่นเกม",
+    "examples": [
+      "Red7",
+      "Aquarius",
+      "Fluxx",
+      "Pandemic Legacy",
+      "Betrayal at House on the Hill"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "A flexible-thinking modifier more than a direct learning claim.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "mental model revision",
+      "social": "varies",
+      "emotional": "adaptation pressure",
+      "observable_behaviors": "re-learning conditions, changing plans, staying flexible",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "49",
+    "category": "Asset",
+    "nameTh": "เริ่มต้นไม่เหมือนกัน",
+    "mechanic_name": "Variable Setup, Variable Player Powers",
+    "mechanic_description": "แผนที่ปรับเปลี่ยนได้ทำให้เริ่มเกมแต่ละครั้งไม่เหมือนกัน หรือผู้เล่นแต่ละคน   มีความสามารถเริ่มต้นต่างกัน",
+    "examples": [
+      "Catan",
+      "Root",
+      "Pandemic",
+      "Cascadia",
+      "Istanbul",
+      "Terraforming Mars"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Good variability source, but usually not enough for a strong learning claim alone.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "situational adaptation",
+      "social": "can increase perspective on roles",
+      "emotional": "light novelty pressure",
+      "observable_behaviors": "planning around asymmetric strengths, adjusting to different openings",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "36",
+    "category": "Asset",
+    "nameTh": "ตลาดซื้อขาย",
+    "mechanic_name": "Market, Exchanging, Trading",
+    "mechanic_description": "แลกเปลี่ยนสิ่งของระหว่างผู้เล่นได้ หรือมีตลาดส่วนกลางให้สามารถซื้อขายทรัพยากรได้",
+    "examples": [
+      "Catan",
+      "Chinatown",
+      "Power Grid",
+      "Gizmos",
+      "Century: Spice road"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 2,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 1,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Strong bridge for economic reasoning.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "value comparison and timing",
+      "social": "can include bargaining or market reading",
+      "emotional": "scarcity and value tension",
+      "observable_behaviors": "pricing, comparing deals, timing purchases, exploiting market conditions",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "37",
+    "category": "Asset",
+    "nameTh": "กู้ยืม / ขัดสน",
+    "mechanic_name": "Loans, Scarcity",
+    "mechanic_description": "กู้เงินหรือสิ่งของในเกมมาใช้ก่อนได้ โดยมีเงื่อนไขการคืน และบทลงโทษหากไม่คืน",
+    "examples": [
+      "Brass:Birmingham",
+      "Age of Industry",
+      "Homesteader",
+      "Le Havre",
+      "Container"
+    ],
+    "skills": {
+      "problem_solving": 2,
+      "creativity": 0,
+      "critical_thinking": 2,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 2,
+      "resilience": 2,
+      "negotiation": 0,
+      "decision_making": 3,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "One of the clearest direct bridges to financial and strategic judgment.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "future-cost reasoning",
+      "social": "usually low",
+      "emotional": "stress from shortage and debt",
+      "observable_behaviors": "borrowing, surviving scarcity, accepting penalties, comparing now versus later",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "38",
+    "category": "Asset",
+    "nameTh": "เป็นเจ้าของ",
+    "mechanic_name": "Investment, Ownership, Income",
+    "mechanic_description": "ได้ประโยชน์จากการครอบครองสิ่งของหรือพื้นที่ เช่น ผู้เล่นอื่นต้องจ่ายเงินเมื่อใช้พื้นที่ หรือมีความสามารถพิเศษอื่นๆ",
+    "examples": [
+      "Monopoly",
+      "Chinatown",
+      "Everdell",
+      "Lords of Waterdeep",
+      "Stockpile"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 2,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 2,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 3,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Strong bridge for planning and financial reasoning.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "long-horizon trade-off analysis",
+      "social": "can create interdependence through use and ownership",
+      "emotional": "delayed gratification and risk tolerance",
+      "observable_behaviors": "investing now for later gain, protecting assets, choosing growth over immediate payoff",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "40",
+    "category": "Asset",
+    "nameTh": "สะสมครบเซ็ต",
+    "mechanic_name": "Set Collection",
+    "mechanic_description": "สะสมการ์ดหรือสัญลักษณ์ให้ได้ครบตามที่กำหนดไว้ เพื่อรับคะแนนหรือความสามารถพิเศษต่างๆ",
+    "examples": [
+      "Poker",
+      "Point Salad",
+      "Wingspan",
+      "Bonanza",
+      "Sushi Go!",
+      "Splendor"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Useful planning signal, but often light unless scarcity is sharp.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "combination planning",
+      "social": "usually low",
+      "emotional": "completion tension",
+      "observable_behaviors": "pursuing sets, abandoning incomplete plans, valuing synergy",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "41",
+    "category": "Asset",
+    "nameTh": "มูลค่ามีขึ้นมีลง",
+    "mechanic_name": "Dynamic resource value",
+    "mechanic_description": "ราคาหรือแต้มของทรัพยากรสามารถเปลี่ยนแปลงขึ้นลงได้ระหว่างเล่นเกม   ตามเงื่อนไขที่กำหนดไว้",
+    "examples": [
+      "Point Salad",
+      "Stockpile",
+      "Clans of Caledonia",
+      "Power Grid",
+      "Modern Art"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 2,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Strong bridge for analytical adaptation.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "dynamic valuation",
+      "social": "can include market anticipation",
+      "emotional": "volatility pressure",
+      "observable_behaviors": "buying low, selling high, revaluing assets, adjusting to change",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "39",
+    "category": "Strategy",
+    "nameTh": "แย่งชิงเป้าหมาย",
+    "mechanic_name": "Claim Objectives, Contracts",
+    "mechanic_description": "ผู้เล่นมีการ์ดเป้าหมายที่ต้องทำให้สำเร็จเพื่อรับคะแนน โดยเป้าหมายเหล่านี้อาจเป็นแบบส่วนตัวหรือแบบสาธารณะ",
+    "examples": [
+      "Pizza Master",
+      "Splendor",
+      "Ticket to Ride",
+      "Terraforming Mars",
+      "Wingspan"
+    ],
+    "skills": {
+      "problem_solving": 2,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Good bridge to target-oriented planning.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "goal decomposition",
+      "social": "low-medium if objectives are contested",
+      "emotional": "commitment pressure",
+      "observable_behaviors": "prioritizing goals, monitoring progress, aligning actions to targets",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "31",
+    "category": "Strategy",
+    "nameTh": "เลือกตัดหน้า",
+    "mechanic_name": "Drafting, Action Selection",
+    "mechanic_description": "เลือกสิ่งที่มีประโยชน์ที่สุดจากตัวเลือกที่มีจำกัด หรือเลือกเพื่อตัดหน้าผู้เล่นคนถัดไปได้",
+    "examples": [
+      "Sushi Go!",
+      "7 Wonders",
+      "Splendor",
+      "Pizza Master"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 2,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Strong default bridge because choice, scarcity, and consequence are built in.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "comparative evaluation under scarcity",
+      "social": "indirectly interactive through denial",
+      "emotional": "choice tension",
+      "observable_behaviors": "prioritizing options, cutting others off, choosing now versus later",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "32",
+    "category": "Strategy",
+    "nameTh": "แบ่งคนไปทำงาน",
+    "mechanic_name": "Worker Placement, Action Point",
+    "mechanic_description": "นำตัวละครไปวางในช่องเพื่อรับผลตอบแทนตามที่ระบุ โดยผู้เล่นมีจำนวนตัวละครจำกัด",
+    "examples": [
+      "Caylus",
+      "Agricola",
+      "Stone Age",
+      "Lords of Waterdeep",
+      "Everdell"
+    ],
+    "skills": {
+      "problem_solving": 2,
+      "creativity": 0,
+      "critical_thinking": 2,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 2,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Very strong bridge for planning skills.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "resource allocation and sequencing",
+      "social": "can include blocking and coordination",
+      "emotional": "scarcity and opportunity-cost pressure",
+      "observable_behaviors": "placing workers, sequencing actions, choosing what not to do",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "33",
+    "category": "Strategy",
+    "nameTh": "ปรับแต่งความสามารถ",
+    "mechanic_name": "Deck Building, Bag Building, Upgrade",
+    "mechanic_description": "ปรับปรุงทรัพยากรส่วนตัว หรือความสามารถตามสถานการณ์ในเกม เช่น ปรับตัวละคร แก้ไขสำรับการ์ดหรือของในถุงสุ่ม",
+    "examples": [
+      "Star realms",
+      "Clank!",
+      "Orleans",
+      "Challengers!",
+      "Lost Ruins of Arnak"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 2,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Good bridge for growth-oriented planning.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "system tuning and future-value reasoning",
+      "social": "usually low",
+      "emotional": "patience and growth tension",
+      "observable_behaviors": "upgrading, pruning, building toward future turns",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "34",
+    "category": "Strategy",
+    "nameTh": "พัฒนาระบบ",
+    "mechanic_name": "Engine Building, Supply Chains",
+    "mechanic_description": "สร้างระบบที่ช่วยขยายขีดความสามารถในการทำแต้ม ทำให้ได้ผลลัพธ์มากขึ้นเรื่อยๆ",
+    "examples": [
+      "Gizmos",
+      "Splendor",
+      "Machi Koro 2",
+      "Wingspan",
+      "Furnace"
+    ],
+    "skills": {
+      "problem_solving": 2,
+      "creativity": 0,
+      "critical_thinking": 3,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 2,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "One of the strongest bridges to higher-order analytical thinking.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "systems reasoning and efficiency design",
+      "social": "low",
+      "emotional": "delayed reward discipline",
+      "observable_behaviors": "creating combos, reinforcing loops, scaling production",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "35",
+    "category": "Strategy",
+    "nameTh": "สร้างชุดคำสั่ง",
+    "mechanic_name": "Programming, Action Selection",
+    "mechanic_description": "กำหนดคำสั่งที่จะทำไว้ล่วงหน้า แล้วจึงเปิดแสดงผลตามลำดับ",
+    "examples": [
+      "Colt Express",
+      "Robo Rally",
+      "Walk the plank!",
+      "Heat",
+      "Room 25"
+    ],
+    "skills": {
+      "problem_solving": 2,
+      "creativity": 0,
+      "critical_thinking": 2,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 1,
+      "negotiation": 0,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Good bridge for planning under uncertainty.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "anticipation and sequence planning",
+      "social": "can include reading others' likely moves",
+      "emotional": "loss of immediate control",
+      "observable_behaviors": "precommitting sequences, anticipating interference, learning from plan failure",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "22",
+    "category": "Strategy",
+    "nameTh": "เลือกใช้ความสามารถ",
+    "mechanic_name": "Hand Management, Command",
+    "mechanic_description": "จั่วการ์ด ใช้การ์ด เก็บการ์ด ซึ่งการ์ดสามารถแทนเป็น ทรัพยากร เงิน หรือความสามารถพิเศษต่างๆ ได้",
+    "examples": [
+      "Brass",
+      "Spirit Island",
+      "Wingspan",
+      "Evolution",
+      "Challenger!"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 2,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 2,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 0
+    },
+    "skill_rationale": "Strong bridge because constraint and prioritization are continuous.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "option-value comparison",
+      "social": "low",
+      "emotional": "flexibility versus commitment tension",
+      "observable_behaviors": "holding cards, spending carefully, sequencing use",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "17",
+    "category": "Touch",
+    "nameTh": "ใช้ความแม่นยำ",
+    "mechanic_name": "Dexterity",
+    "mechanic_description": "หยิบ วาง เรียง ประกอบ โยน อุปกรณ์เป็นบล็อคไม้หรือพลาสติกรูปทรงต่างๆ ช่วยเพิ่มความสนุกและความสมจริงให้เกม",
+    "examples": [
+      "Buffet Boss",
+      "Klask",
+      "Drop It",
+      "Flick'em Up!",
+      "Ghost Blitz"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 0,
+      "respect_for_diversity": 0,
+      "participation": 2
+    },
+    "skill_rationale": "Useful for embodiment and engagement, not for broad learning claims alone.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "motor planning",
+      "social": "often visible and exciting",
+      "emotional": "performance tension",
+      "observable_behaviors": "aiming, balancing, flicking, placing carefully",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "physical interaction can make abstract ideas feel immediate and concrete"
+    }
+  },
+  {
+    "card_no": "18",
+    "category": "Touch",
+    "nameTh": "เขียนบนกระดาษ",
+    "mechanic_name": "Paper and Pencil",
+    "mechanic_description": "เขียนเพิ่ม กาออก วาดรูป บนกระดาษตามเงื่อนไขของเกม มักใช้คู่กับการสุ่ม",
+    "examples": [
+      "Cartographers",
+      "That's Pretty Clever!",
+      "QWIXX",
+      "Just One"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 0,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 0,
+      "respect_for_diversity": 0,
+      "participation": 1
+    },
+    "skill_rationale": "Usually an interface aid more than a transferable-skill source.",
+    "skill_confidence": "low-medium",
+    "demands": {
+      "cognitive": "representation and notation",
+      "social": "varies",
+      "emotional": "low",
+      "observable_behaviors": "writing, marking, sketching, tracking",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "writing can externalize thought and make invisible logic more visible"
+    }
+  },
+  {
+    "card_no": "19",
+    "category": "Touch",
+    "nameTh": "เดินทาง",
+    "mechanic_name": "Point to point movement",
+    "mechanic_description": "เดินตัวละครบนแผนที่ที่กำหนดไว้ ตามเงื่อนไขต่างๆ ในเกม",
+    "examples": [
+      "บันไดงู",
+      "Monopoly",
+      "Chess",
+      "War Hammer",
+      "Gangsi",
+      "Fearsome Floor"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 0,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 1
+    },
+    "skill_rationale": "Often supports concrete understanding rather than being the main learning outcome.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "spatial route planning",
+      "social": "low",
+      "emotional": "travel tension",
+      "observable_behaviors": "navigating, choosing routes, managing position",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "movement can make process, distance, and sequence more concrete"
+    }
+  },
+  {
+    "card_no": "20",
+    "category": "Touch",
+    "nameTh": "แย่งชิงพื้นที่",
+    "mechanic_name": "Area Control",
+    "mechanic_description": "กระดานมีพื้นที่จำกัด แย่งชิงพื้นที่เพื่อเอาชนะ หรือได้ความสามารถพิเศษจากพื้นที่นั้น",
+    "examples": [
+      "Catan",
+      "หมากล้อม",
+      "Small world",
+      "A Game of thrones",
+      "Root",
+      "El Grande"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 0,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 1
+    },
+    "skill_rationale": "Meaningful for strategy, but not automatically for social-emotional skill.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "territorial prioritization",
+      "social": "direct contest with others",
+      "emotional": "conflict pressure",
+      "observable_behaviors": "contesting zones, protecting space, predicting pressure",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "space can make competition and system relationships visible"
+    }
+  },
+  {
+    "card_no": "21",
+    "category": "Touch",
+    "nameTh": "ต่อขยายพื้นที่",
+    "mechanic_name": "Tile Laying, Pattern Building, Jigsaw",
+    "mechanic_description": "ต่อพื้นที่ให้ขยายขึ้นเรื่อยๆ ตามรูปแบบหรือเงื่อนไขที่กำหนด",
+    "examples": [
+      "Carcassonne",
+      "Suburbia",
+      "Taluva",
+      "Samurai",
+      "Patchwork",
+      "Project L"
+    ],
+    "skills": {
+      "problem_solving": 1,
+      "creativity": 0,
+      "critical_thinking": 2,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 0,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 1
+    },
+    "skill_rationale": "Strong bridge for concrete understanding even when not a direct learning outcome.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "spatial reasoning and visible consequence analysis",
+      "social": "usually low",
+      "emotional": "satisfaction from visible construction",
+      "observable_behaviors": "arranging pieces, matching patterns, optimizing layouts",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "excellent for turning abstract systems into visible, concrete relationships"
+    }
+  },
+  {
+    "card_no": "23",
+    "category": "Touch",
+    "nameTh": "ห้ามล้ม",
+    "mechanic_name": "Stacking, Balancing",
+    "mechanic_description": "วางชิ้นส่วนซ้อนลงไป หรือหยิบออกโดยไม่ให้ล้ม",
+    "examples": [
+      "Rhino Hero",
+      "Janka",
+      "Tinderblox",
+      "Tokyo Highway",
+      "Baobab",
+      "Stick Stack"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 0,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 0,
+      "decision_making": 0,
+      "respect_for_diversity": 0,
+      "participation": 2
+    },
+    "skill_rationale": "Mostly an embodiment helper and engagement layer.",
+    "skill_confidence": "medium",
+    "demands": {
+      "cognitive": "physical judgment",
+      "social": "visible turn pressure",
+      "emotional": "tension and fine-motor caution",
+      "observable_behaviors": "balancing carefully, reading stability, controlling force",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "physical instability can embody fragility, risk, and cumulative consequence"
+    }
+  },
+  {
+    "card_no": "24",
+    "category": "Engage",
+    "nameTh": "ประมูล",
+    "mechanic_name": "Auction/Bidding",
+    "mechanic_description": "จ่ายเงินหรือแต้มเพื่อแข่งกัน โดยผู้ที่ให้มากที่สุดจะชนะ หรือผู้ที่ให้น้อยสุดจะเสียอะไรบางอย่าง",
+    "examples": [
+      "For Sale",
+      "Modern Art",
+      "Power Grid",
+      "RA",
+      "Stockpile"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 2,
+      "communication": 1,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 1,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 1
+    },
+    "skill_rationale": "Good bridge for valuation and strategic signaling.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "valuation and threshold reasoning",
+      "social": "high market interaction",
+      "emotional": "competitive pressure and bluff tension",
+      "observable_behaviors": "bidding, passing, pricing under uncertainty",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "25",
+    "category": "Engage",
+    "nameTh": "สวมบทบาท",
+    "mechanic_name": "Role Playing/Storytelling",
+    "mechanic_description": "ผู้เล่นแต่ละคนรับบทบาทต่างกัน และสร้างเรื่องราวในเกมได้อิสระ",
+    "examples": [
+      "Gloomhaven",
+      "Arkham Horror",
+      "Dead of Winter",
+      "Mansion of Madness"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 2,
+      "critical_thinking": 0,
+      "communication": 2,
+      "collaboration": 0,
+      "empathy": 2,
+      "self_management": 0,
+      "resilience": 0,
+      "negotiation": 1,
+      "decision_making": 0,
+      "respect_for_diversity": 1,
+      "participation": 2
+    },
+    "skill_rationale": "One of the richer bridges to empathy when perspective-taking is authentic.",
+    "skill_confidence": "medium-high",
+    "demands": {
+      "cognitive": "narrative framing and interpretation",
+      "social": "high expression and response",
+      "emotional": "perspective and expressive vulnerability",
+      "observable_behaviors": "speaking in role, imagining perspectives, constructing shared meaning",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "narrative role can make complex human contexts easier to grasp"
+    }
+  },
+  {
+    "card_no": "26",
+    "category": "Engage",
+    "nameTh": "โหวตตัดสิน",
+    "mechanic_name": "Voting",
+    "mechanic_description": "ตัดสินผ่านการลงคะแนนเสียงร่วมกัน   มักมาควบคู่กับ เจรจาต่อรอง",
+    "examples": [
+      "Ulitimate Werewolf",
+      "Avalon",
+      "Spyfall",
+      "Secret Hitler",
+      "Insider"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 1,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 0,
+      "resilience": 0,
+      "negotiation": 1,
+      "decision_making": 0,
+      "respect_for_diversity": 1,
+      "participation": 3
+    },
+    "skill_rationale": "Very strong for participation; empathy depends on whether viewpoint engagement is real.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "preference comparison",
+      "social": "high collective judgment",
+      "emotional": "voice, influence, and acceptance pressure",
+      "observable_behaviors": "arguing, choosing, aligning, signaling support",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "27",
+    "category": "Engage",
+    "nameTh": "ใบ้คำ",
+    "mechanic_name": "Targeted Clues",
+    "mechanic_description": "ใบ้ให้ผู้เล่นอีกฝั่งทำตามเงื่อนไขของเกม โดยผู้ให้ข้อมูลมักจะถูกจำกัดการสื่อสาร หรือต้องสื่อสารผ่านเงื่อนไขบางอย่างของเกม",
+    "examples": [
+      "Dixit",
+      "Spyfall",
+      "Hues and Cues",
+      "Decrypto",
+      "Wavelength",
+      "คำต้องห้าม"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 3,
+      "collaboration": 1,
+      "empathy": 1,
+      "self_management": 0,
+      "resilience": 0,
+      "negotiation": 1,
+      "decision_making": 0,
+      "respect_for_diversity": 0,
+      "participation": 2
+    },
+    "skill_rationale": "Strong communication bridge; empathy rises only when real perspective-taking matters.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "perspective-tuned expression",
+      "social": "high interpretive interaction",
+      "emotional": "misunderstanding risk",
+      "observable_behaviors": "clueing, anticipating misread, tailoring expression to others",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "28",
+    "category": "Engage",
+    "nameTh": "เดิมพัน ล่อหลอก",
+    "mechanic_name": "Betting and Bluffing",
+    "mechanic_description": "ลงเงินหรือทรัพย์สินเป็นตัวประกันไว้ก่อนตัดสินผล เมื่อตัดสินแล้ว ผู้ชนะจะได้รางวัล และผู้แพ้จะเสียสิ่งที่เดิมพันไว้ตามเงื่อนไขในเกม",
+    "examples": [
+      "Poker",
+      "Camel Up",
+      "Ready Set Bet",
+      "Sheriff of Nottingham",
+      "Coup"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 1,
+      "communication": 1,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 1,
+      "resilience": 0,
+      "negotiation": 1,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 1
+    },
+    "skill_rationale": "Often social, but not necessarily empathetic.",
+    "skill_confidence": "medium-high",
+    "demands": {
+      "cognitive": "probability and social reading",
+      "social": "high interaction and deception",
+      "emotional": "risk and performative tension",
+      "observable_behaviors": "bluffing, reading confidence, wagering under uncertainty",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "29",
+    "category": "Engage",
+    "nameTh": "แกล้งกัน",
+    "mechanic_name": "Take That",
+    "mechanic_description": "ใช้ความสามารถในเกมเพื่อโจมตี   หรือขัดขวางผู้เล่นคนอื่นได้",
+    "examples": [
+      "Exploding Kitten",
+      "King of Tokyo",
+      "Unstable Unicorn",
+      "Muffin time",
+      "Coup"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 1,
+      "collaboration": 0,
+      "empathy": 0,
+      "self_management": 0,
+      "resilience": 0,
+      "negotiation": 1,
+      "decision_making": 1,
+      "respect_for_diversity": 0,
+      "participation": 1
+    },
+    "skill_rationale": "Do not infer empathy or healthy collaboration from direct attack alone.",
+    "skill_confidence": "low",
+    "demands": {
+      "cognitive": "target selection",
+      "social": "high confrontation",
+      "emotional": "attack-and-reaction tension",
+      "observable_behaviors": "interrupting, attacking, blocking",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  },
+  {
+    "card_no": "30",
+    "category": "Engage",
+    "nameTh": "เจรจาต่อรอง",
+    "mechanic_name": "Negotiation and Diplomacy",
+    "mechanic_description": "พูดคุย โน้มน้าว ต่อรอง กับผู้เล่นอื่น   เพื่อให้ได้ผลลัพธ์ตามที่ต้องการ",
+    "examples": [
+      "Chinatown",
+      "I'm the boss",
+      "Catan",
+      "Ulitimate Werewolf"
+    ],
+    "skills": {
+      "problem_solving": 0,
+      "creativity": 0,
+      "critical_thinking": 0,
+      "communication": 2,
+      "collaboration": 0,
+      "empathy": 2,
+      "self_management": 0,
+      "resilience": 0,
+      "negotiation": 3,
+      "decision_making": 2,
+      "respect_for_diversity": 0,
+      "participation": 2
+    },
+    "skill_rationale": "One of the strongest direct bridges to social-emotional transferable skills.",
+    "skill_confidence": "high",
+    "demands": {
+      "cognitive": "interest comparison and concession design",
+      "social": "high reciprocal interaction",
+      "emotional": "trust, pressure, and relationship management",
+      "observable_behaviors": "making offers, countering, listening, trading concessions",
+      "reward_mindset_effect": "none",
+      "ending_pressure_effect": "none",
+      "touch_concretization_effect": "none"
+    }
+  }
+]
