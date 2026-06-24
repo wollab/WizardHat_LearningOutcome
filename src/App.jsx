@@ -4,7 +4,7 @@ import DeckResult from './components/DeckResult.jsx';
 import CardCapture from './components/CardCapture.jsx';
 import CardConfirmList from './components/CardConfirmList.jsx';
 import OutcomeReport from './components/OutcomeReport.jsx';
-import DeckAssessmentV2 from './components/DeckAssessmentV2.jsx';
+import CaseStudyGallery from './components/CaseStudyGallery.jsx';
 import { runSearch } from './lib/cardSearch.js';
 import { scoreCombination, DURATION_OPTIONS } from './lib/scoring.js';
 
@@ -145,12 +145,12 @@ export default function App() {
               experience === EXPERIENCE.V2 ? 'bg-wizard-plum text-white' : 'text-wizard-ink'
             }`}
           >
-            เวอร์ชันใหม่: วิเคราะห์ outcome ภาษาไทย
+            กรณีศึกษา: อ่านผลลัพธ์ภาษาไทย
           </button>
         </div>
       </div>
 
-      {experience === EXPERIENCE.V1 ? renderClassicFlow() : <DeckAssessmentV2 />}
+      {experience === EXPERIENCE.V1 ? renderClassicFlow() : <CaseStudyGallery />}
     </div>
   );
 }

@@ -54,6 +54,48 @@ export const EXAMPLE_DECKS = [
   },
 ];
 
+export const CASE_STUDIES = [
+  {
+    id: 'nhrc-venn',
+    sectionLabel: 'กรณีศึกษา 1',
+    title: 'NHRC Venn Hybrid',
+    subtitle: 'เกมแนวสิทธิและความซ้อนทับของประเด็น',
+    gameNameTh: 'ต้นแบบ NHRC Venn',
+    learningGoal:
+      'ช่วยให้ผู้เล่นเห็นว่าปัญหาในชีวิตจริงหนึ่งเรื่องอาจเกี่ยวข้องกับสนธิสัญญาสิทธิมนุษยชนมากกว่าหนึ่งฉบับ และการวางผิดอาจทำให้ประเด็นนั้นหลุดออกจากการคุ้มครอง',
+    keyUse: 'เหมาะกับโจทย์ที่ต้องการ classification, overlap recognition และ debrief ที่มีความหมาย',
+    whyThisCase: 'กรณีนี้แสดงให้เห็นชัดว่า Touch และ pressure layer ช่วยทำให้ประเด็นสิทธิมนุษยชนที่นามธรรมกลายเป็นสิ่งที่จับต้องได้ในโต๊ะเกม',
+    boxImage: null,
+    cardNos: ['3', '5', '14', '44', '27', '42', '21', '10'],
+  },
+  {
+    id: 'wishlist-finance',
+    sectionLabel: 'กรณีศึกษา 2',
+    title: 'Wishlist Financial Trade-offs',
+    subtitle: 'เกมแนวการเงินและการตัดสินใจภายใต้ข้อจำกัด',
+    gameNameTh: 'Wishlist',
+    learningGoal:
+      'ช่วยให้ผู้เล่นเปรียบเทียบการใช้เงิน การเก็บเงิน การกู้ และการลงทุน ภายใต้ข้อจำกัดจริง พร้อมเห็นผลของการตัดสินใจระยะสั้นและระยะยาว',
+    keyUse: 'เหมาะกับโจทย์ที่ต้องการ critical thinking, decision-making และ consequence awareness',
+    whyThisCase: 'กรณีนี้ช่วยยืนยันว่า Wizard Hat ไม่ได้ใช้ได้เฉพาะเกมสนทนาหรือประเด็นสังคม แต่ใช้กับเกมการเงินที่เน้น trade-off ได้ด้วย',
+    boxImage: null,
+    cardNos: ['1', '5', '16', '9', '31', '36', '38', '22'],
+  },
+  {
+    id: 'dialogue-starter',
+    sectionLabel: 'กรณีศึกษา 3',
+    title: 'Social Issue Dialogue Starter',
+    subtitle: 'โครงตั้งต้นสำหรับเกมสนทนา มุมมอง และการเจรจา',
+    gameNameTh: 'Social Issue Dialogue Starter',
+    learningGoal:
+      'ช่วยให้ผู้เล่นตีความสถานการณ์จากหลายมุมมอง สื่อสารภายใต้ข้อจำกัด และต่อรองเพื่อหาทางออกที่แต่ละฝ่ายยอมรับได้',
+    keyUse: 'เหมาะกับโจทย์ที่ต้องการ perspective-taking, participation และ negotiation',
+    whyThisCase: 'กรณีนี้เป็นตัวแทนของเส้นทางที่ Wizard Hat ใช้สร้างเกมเพื่อบทสนทนาเชิงสังคมและการเรียนรู้จากมุมมองที่ต่างกัน',
+    boxImage: null,
+    cardNos: ['3', '12', '44', '49', '25', '26', '30'],
+  },
+];
+
 const cardsByNo = new Map(cards.map((card) => [String(card.card_no), card]));
 const CATEGORY_ORDER = ['Conflict', 'Order', 'Reward', 'Ending', 'Twist', 'Asset', 'Strategy', 'Touch', 'Engage'];
 

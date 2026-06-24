@@ -45,6 +45,16 @@ export default function TargetProfileForm({ onSubmit, initialTargets, initialDur
         เติมค่าพลังลงกราฟแมงมุมตามที่โจทย์ต้องการ แล้วกด "ดูซิว่าได้อะไร" — ระบบจะสุ่มชุดการ์ดที่ใกล้เคียงเป้าหมายที่สุดมาให้
       </p>
 
+      <div className="rounded-2xl bg-white border border-wizard-ink/10 p-4 mb-5">
+        <h3 className="text-sm font-semibold text-wizard-plum mb-2">ความหมายคะแนน 0–3 แบบสั้น ๆ</h3>
+        <div className="grid sm:grid-cols-2 gap-2 text-sm text-wizard-ink/75">
+          <div><span className="font-medium">0</span> = ไม่ได้เน้นหรือแทบไม่เกิด</div>
+          <div><span className="font-medium">1</span> = แตะเล็กน้อย ใช้ได้แต่ยังไม่ใช่แกนหลัก</div>
+          <div><span className="font-medium">2</span> = เกิดค่อนข้างชัด มีผลต่อการเล่น</div>
+          <div><span className="font-medium">3</span> = เป็นหัวใจของประสบการณ์และส่งผลสูงต่อ outcome</div>
+        </div>
+      </div>
+
       <div className="mb-5">
         <p className="text-sm font-medium mb-2">อยากให้เกมเล่นนานแค่ไหน?</p>
         <div className="flex gap-2">
