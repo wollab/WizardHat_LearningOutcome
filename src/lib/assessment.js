@@ -1,5 +1,8 @@
 import cards from '../data/wizard_hat_learning_data.json';
 import { SKILL_KEYS, SKILL_LABELS_TH } from './scoring.js';
+import wishlistImage from '../assets/cases/wishlist.png';
+import localElectionImage from '../assets/cases/local-election.png';
+import richmanGameImage from '../assets/cases/richman-game.png';
 
 export const LEARNING_FUNCTION_KEYS = [
   'classification',
@@ -56,43 +59,58 @@ export const EXAMPLE_DECKS = [
 
 export const CASE_STUDIES = [
   {
-    id: 'nhrc-venn',
-    sectionLabel: 'กรณีศึกษา 1',
-    title: 'NHRC Venn Hybrid',
-    subtitle: 'เกมแนวสิทธิและความซ้อนทับของประเด็น',
-    gameNameTh: 'ต้นแบบ NHRC Venn',
-    learningGoal:
-      'ช่วยให้ผู้เล่นเห็นว่าปัญหาในชีวิตจริงหนึ่งเรื่องอาจเกี่ยวข้องกับสนธิสัญญาสิทธิมนุษยชนมากกว่าหนึ่งฉบับ และการวางผิดอาจทำให้ประเด็นนั้นหลุดออกจากการคุ้มครอง',
-    keyUse: 'เหมาะกับโจทย์ที่ต้องการ classification, overlap recognition และ debrief ที่มีความหมาย',
-    whyThisCase: 'กรณีนี้แสดงให้เห็นชัดว่า Touch และ pressure layer ช่วยทำให้ประเด็นสิทธิมนุษยชนที่นามธรรมกลายเป็นสิ่งที่จับต้องได้ในโต๊ะเกม',
-    boxImage: null,
-    cardNos: ['3', '5', '14', '44', '27', '42', '21', '10'],
-  },
-  {
-    id: 'wishlist-finance',
-    sectionLabel: 'กรณีศึกษา 2',
-    title: 'Wishlist Financial Trade-offs',
-    subtitle: 'เกมแนวการเงินและการตัดสินใจภายใต้ข้อจำกัด',
+    id: 'wishlist',
+    tabLabel: 'Wishlist',
+    title: 'Wishlist',
+    subtitle: 'เกมการเงินที่เน้น trade-off การใช้เงิน การกู้ และการวางแผนเป้าหมาย',
     gameNameTh: 'Wishlist',
+    domain: 'การเงิน',
+    evidenceSummary: 'Impact card ปัจจุบันแข็งที่สุดในชุดนี้: E4 / R3 พร้อมงานวิจัย pre-post และการใช้งานวงกว้าง',
+    publicReason: 'มี public evidence แข็งมากและเป็นตัวอย่างชัดของการใช้ Wizard Hat อ่านเกมที่ออกแบบเพื่อ financial decision-making',
     learningGoal:
       'ช่วยให้ผู้เล่นเปรียบเทียบการใช้เงิน การเก็บเงิน การกู้ และการลงทุน ภายใต้ข้อจำกัดจริง พร้อมเห็นผลของการตัดสินใจระยะสั้นและระยะยาว',
     keyUse: 'เหมาะกับโจทย์ที่ต้องการ critical thinking, decision-making และ consequence awareness',
-    whyThisCase: 'กรณีนี้ช่วยยืนยันว่า Wizard Hat ไม่ได้ใช้ได้เฉพาะเกมสนทนาหรือประเด็นสังคม แต่ใช้กับเกมการเงินที่เน้น trade-off ได้ด้วย',
-    boxImage: null,
+    whyThisCase: 'กรณีนี้ยืนยันว่า Wizard Hat ใช้กับเกมที่มีโครงเศรษฐกิจและการตัดสินใจซับซ้อนได้ ไม่ได้จำกัดอยู่แค่เกมสนทนาหรือเกมทีม',
+    boxImage: wishlistImage,
+    imageCaption: 'ตอนนี้มีไฟล์โลโก้/ภาพหลักจาก WoL แล้ว แต่ยังควรเพิ่มภาพกล่องหรือภาพเล่นจริงเพื่อให้ case นี้เล่าเรื่องได้เต็มขึ้น',
+    missingAssets: ['ภาพกล่องเกมหรือ box render', 'ภาพผู้เล่นกำลังตัดสินใจ/จัดการทรัพยากรบนโต๊ะ'],
     cardNos: ['1', '5', '16', '9', '31', '36', '38', '22'],
   },
   {
-    id: 'dialogue-starter',
-    sectionLabel: 'กรณีศึกษา 3',
-    title: 'Social Issue Dialogue Starter',
-    subtitle: 'โครงตั้งต้นสำหรับเกมสนทนา มุมมอง และการเจรจา',
-    gameNameTh: 'Social Issue Dialogue Starter',
+    id: 'local-election',
+    tabLabel: 'Local Election',
+    title: 'Local Election',
+    subtitle: 'เกม civic learning ที่ทำให้ผลของการเลือกและการจัดสรรทรัพยากรเห็นเป็นรูปธรรม',
+    gameNameTh: 'Local Election',
+    domain: 'พลเมือง / การเมืองท้องถิ่น',
+    evidenceSummary: 'มี impact card ระดับ E3 / R2 จาก KPI book และข้อมูลผู้เข้าร่วม N=45',
+    publicReason: 'เป็นหนึ่งในเคส civic ที่แข็งที่สุดของ WoL ทั้งในเชิง public source และ institutional validation',
     learningGoal:
-      'ช่วยให้ผู้เล่นตีความสถานการณ์จากหลายมุมมอง สื่อสารภายใต้ข้อจำกัด และต่อรองเพื่อหาทางออกที่แต่ละฝ่ายยอมรับได้',
-    keyUse: 'เหมาะกับโจทย์ที่ต้องการ perspective-taking, participation และ negotiation',
-    whyThisCase: 'กรณีนี้เป็นตัวแทนของเส้นทางที่ Wizard Hat ใช้สร้างเกมเพื่อบทสนทนาเชิงสังคมและการเรียนรู้จากมุมมองที่ต่างกัน',
-    boxImage: null,
-    cardNos: ['3', '12', '44', '49', '25', '26', '30'],
+      'ช่วยให้ผู้เล่นเห็นว่าการเลือกผู้แทน นโยบาย และการจัดสรรทรัพยากรส่งผลต่อเมืองและชีวิตพลเมืองอย่างไร',
+    keyUse: 'เหมาะกับโจทย์ที่ต้องการ participation, consequence awareness และ systems thinking เชิง civic',
+    whyThisCase: 'กรณีนี้แสดงพลังของเกมที่เอาประเด็นนโยบายสาธารณะมาทำให้ผู้เล่นเห็น causal link ผ่านการลงคะแนนและผลลัพธ์ของเมือง',
+    boxImage: localElectionImage,
+    imageCaption: 'มีภาพกล่องจาก WoL แล้ว เหลือเติมภาพบอร์ดหรือภาพกิจกรรมจะช่วยให้คนเข้าใจวิธีเล่นและผลการเรียนรู้เร็วขึ้น',
+    missingAssets: ['ภาพกระดาน/องค์ประกอบเมือง', 'ภาพกิจกรรมหรือผู้เล่นกำลังโหวต/ตัดสินใจ'],
+    cardNos: ['1', '5', '16', '13', '39', '45', '21', '26'],
+  },
+  {
+    id: 'richman-game',
+    tabLabel: 'Richman Game',
+    title: 'Richman Game',
+    subtitle: 'เกมภาษีและการเงินสำหรับผู้เริ่มทำงาน ที่แปลงเรื่องยากให้เข้าใจผ่านการจำลองชีวิต',
+    gameNameTh: 'Richman Game',
+    domain: 'การเงิน / ภาษี',
+    evidenceSummary: 'หลักฐานเชิงผลลัพธ์ยังอ่อนกว่า 2 เคสแรก แต่มี WoL public asset ชัดและเป็นเคสที่อธิบายการทำเรื่องยากให้จับต้องได้ดี',
+    publicReason: 'เหมาะเป็น case ที่ 3 หากต้องการใช้เฉพาะงานที่ WoL เผยแพร่เองและมีภาพประกอบพร้อมใช้ได้ทันที',
+    learningGoal:
+      'ช่วยให้ผู้เล่นเข้าใจวงจรภาษี รายได้ รายจ่าย และผลของการวางแผนการเงินในช่วงปีแรกของการทำงาน',
+    keyUse: 'เหมาะกับโจทย์ที่ต้องการ concrete understanding, self-management และ consequence awareness',
+    whyThisCase: 'กรณีนี้ทำให้เห็นว่าบางโปรเจกต์ไม่ได้เด่นเรื่อง impact evidence สูงสุด แต่เด่นเรื่องการเปลี่ยนเรื่อง abstract ให้เป็นประสบการณ์ที่เรียนรู้ได้ง่ายมาก',
+    boxImage: richmanGameImage,
+    imageCaption: 'มีภาพกล่องจาก WoL แล้ว ถ้าเติมภาพกระดานจริงหรือ tax worksheet จะช่วยให้เห็นพลังของ Touch มากขึ้น',
+    missingAssets: ['ภาพกระดานหรือองค์ประกอบเกมจริง', 'ภาพ tax worksheet / moment ที่ผู้เล่นคำนวณตัดสินใจ'],
+    cardNos: ['1', '5', '16', '9', '38', '46', '22', '18'],
   },
 ];
 
