@@ -4,8 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Bai Jamjuree"', 'system-ui', 'sans-serif'],
-        display: ['Kanit', 'system-ui', 'sans-serif'],
+        sans: ['Kanit', 'system-ui', 'sans-serif'],
       },
       colors: {
         // Official WoL CI (from wol-brand skill: visual-system.md)

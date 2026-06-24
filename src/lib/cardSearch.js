@@ -1,10 +1,8 @@
-import { getAllCards, SKILL_KEYS, scoreCombination } from './scoring.js';
+import { getAllCards, SKILL_KEYS, scoreCombination, DURATION_OPTIONS } from './scoring.js';
 
 const CORE_CATEGORIES = ['Conflict', 'Order', 'Reward', 'Ending'];
-const MIN_TASTE = 2;
-const MAX_TASTE = 4;
-const CANDIDATE_POOL_SIZE = 8;
-const MIN_IMPROVEMENT = 0.05; // stop adding TASTE past MIN_TASTE if gain is this small
+const CANDIDATE_POOL_SIZE = 5;
+const DEFAULT_TASTE_COUNT = DURATION_OPTIONS[1].tasteCount;
 
 function cartesianProduct(arrays) {
   return arrays.reduce(
@@ -29,22 +27,20 @@ function buildCoreCombos(allCards) {
   return cartesianProduct(byCategory);
 }
 
-// Greedily layer TASTE cards onto a CORE combo, picking whichever remaining
-// card reduces distance-to-target the most each step.
-function greedyAddTaste(coreCardNos, tastePool, target) {
+// Greedily layer exactly `tasteCount` TASTE cards onto a CORE combo, each step
+// picking whichever remaining card reduces distance-to-target the most.
+// tasteCount is now a deliberate user choice (tied to play length), so unlike
+// the old min/max-range version this always fills to the exact count.
+function greedyAddTaste(coreCardNos, tastePool, target, tasteCount) {
   let selected = [...coreCardNos];
   let remaining = [...tastePool];
   let currentDist = distance(scoreCombination(selected, target).skills, target);
 
-  for (let i = 0; i < MAX_TASTE; i++) {
+  for (let i = 0; i < tasteCount; i++) {
     if (remaining.length === 0) break;
 
-    // Below the floor, always add the least-bad remaining card (even with zero
-    // improvement) so a deck never ends up with fewer than MIN_TASTE TASTE cards.
-    const forceFill = i < MIN_TASTE;
     let best = null;
-    let bestDist = forceFill ? Infinity : currentDist;
-
+    let bestDist = Infinity;
     for (const candidate of remaining) {
       const trial = [...selected, candidate];
       const d = distance(scoreCombination(trial, target).skills, target);
@@ -55,11 +51,6 @@ function greedyAddTaste(coreCardNos, tastePool, target) {
     }
     if (best == null) break;
 
-    if (!forceFill) {
-      const improvement = currentDist - bestDist;
-      if (improvement < MIN_IMPROVEMENT) break;
-    }
-
     selected.push(best);
     remaining = remaining.filter((c) => c !== best);
     currentDist = bestDist;
@@ -69,7 +60,7 @@ function greedyAddTaste(coreCardNos, tastePool, target) {
 }
 
 // Pure search: returns the top-N closest decks to `target` (no randomness).
-export function findCandidateDecks(target, poolSize = CANDIDATE_POOL_SIZE) {
+export function findCandidateDecks(target, tasteCount = DEFAULT_TASTE_COUNT, poolSize = CANDIDATE_POOL_SIZE) {
   const allCards = getAllCards();
   const tastePool = allCards
     .filter((c) => !CORE_CATEGORIES.includes(c.category))
@@ -77,16 +68,30 @@ export function findCandidateDecks(target, poolSize = CANDIDATE_POOL_SIZE) {
 
   const coreCombos = buildCoreCombos(allCards);
 
-  const results = coreCombos.map((core) => greedyAddTaste(core, tastePool, target));
+  const results = coreCombos.map((core) => greedyAddTaste(core, tastePool, target, tasteCount));
   results.sort((a, b) => a.finalDistance - b.finalDistance);
 
   return results.slice(0, poolSize);
 }
 
-// Picks one deck at random from the top-N closest matches — "run again" gives
-// a different deck each time while staying close to the target.
-export function runSearch(target) {
-  const candidates = findCandidateDecks(target);
-  const pick = candidates[Math.floor(Math.random() * candidates.length)];
+// Picks one deck from the top-N closest matches — "run again" gives a
+// different deck each time. Weighted (not uniform) by closeness, so the
+// closest matches are picked far more often than the pool's tail — variety
+// without regularly handing back a noticeably-off-target deck.
+export function runSearch(target, tasteCount = DEFAULT_TASTE_COUNT) {
+  const candidates = findCandidateDecks(target, tasteCount);
+  const weights = candidates.map((c) => 1 / (1 + c.finalDistance));
+  const totalWeight = weights.reduce((sum, w) => sum + w, 0);
+
+  let roll = Math.random() * totalWeight;
+  let pick = candidates[0];
+  for (let i = 0; i < candidates.length; i++) {
+    roll -= weights[i];
+    if (roll <= 0) {
+      pick = candidates[i];
+      break;
+    }
+  }
+
   return scoreCombination(pick.cardNos, target);
 }

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { toPng } from 'html-to-image';
 import RadarChart from './RadarChart.jsx';
-import { SKILL_KEYS, SKILL_LABELS_TH } from '../lib/scoring.js';
+import { SKILL_KEYS, SKILL_LABELS_TH, CATEGORY_COLORS, DURATION_OPTIONS } from '../lib/scoring.js';
 import { getCardImages } from '../lib/api.js';
 
 // html-to-image rasterizes its target via an SVG wrapper; a *nested* inline
@@ -15,8 +15,33 @@ function svgToDataUri(svgElement) {
 }
 
 const CORE_CATEGORIES = ['Conflict', 'Order', 'Reward', 'Ending'];
+const SHOPEE_URL = 'https://shopee.co.th/wizards.of.learning/46454897531';
 
-export default function DeckResult({ result, target, onRerun, onRestart }) {
+function CardTile({ card, imgSrc }) {
+  const accent = CATEGORY_COLORS[card.category] ?? '#414141';
+  return (
+    <div
+      className="bg-white rounded-lg p-2 text-sm flex flex-col items-center border-2"
+      style={{ borderColor: accent }}
+    >
+      {imgSrc && (
+        <img
+          src={imgSrc}
+          alt={card.nameTh}
+          crossOrigin="anonymous"
+          className="w-full h-40 object-contain bg-white rounded mb-2"
+        />
+      )}
+      <span className="text-xs self-start font-medium" style={{ color: accent }}>
+        {card.category}
+      </span>
+      <div className="font-medium self-start">{card.nameTh}</div>
+      <div className="text-xs text-wizard-ink/60 self-start">{card.mechanic_name}</div>
+    </div>
+  );
+}
+
+export default function DeckResult({ result, target, tasteCount, onRerun, onChangeDuration, onRestart }) {
   const { selected, skills } = result;
   const cardRef = useRef(null);
   const [exporting, setExporting] = useState(false);
@@ -58,6 +83,25 @@ export default function DeckResult({ result, target, onRerun, onRestart }) {
   }, [selected]);
 
   const [exportError, setExportError] = useState(false);
+  const [isShaking, setIsShaking] = useState(false);
+
+  function handleRerunClick() {
+    if (isShaking) return;
+    setIsShaking(true);
+    setTimeout(() => {
+      onRerun();
+      setIsShaking(false);
+    }, 400);
+  }
+
+  function handleDurationClick(count) {
+    if (count === tasteCount || isShaking) return;
+    setIsShaking(true);
+    setTimeout(() => {
+      onChangeDuration(count);
+      setIsShaking(false);
+    }, 400);
+  }
 
   async function exportPng() {
     if (!cardRef.current || exporting) return;
@@ -88,85 +132,108 @@ export default function DeckResult({ result, target, onRerun, onRestart }) {
 
   return (
     <div className="max-w-3xl mx-auto p-6">
-      <div ref={cardRef} className="rounded-2xl bg-wizard-mist p-6 space-y-5">
+      <div
+        ref={cardRef}
+        className={`rounded-2xl bg-wizard-mist p-6 space-y-5 transition-opacity duration-300 ${
+          isShaking ? 'deck-shake opacity-50' : 'opacity-100'
+        }`}
+      >
         <h2 className="text-xl">ชุดการ์ดที่ใกล้เคียงเป้าหมายที่สุด</h2>
 
-        <div className="rounded-2xl bg-white border border-wizard-ink/10 p-4">
-          <img src={radarImgSrc} alt="ผลเทียบ learning outcome" className="w-full max-w-xs mx-auto" />
-          <p className="text-center text-xs text-wizard-ink/60 mt-1">เส้นทอง = เป้าหมาย · พื้นเขียว = ชุดการ์ดนี้ให้จริง</p>
-        </div>
-
         <div>
-          <h3 className="text-sm font-semibold text-wizard-plum mb-2">CORE (4 ใบ)</h3>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="flex items-center justify-between mb-2">
+            <h3 className="text-sm font-semibold text-wizard-plum">CORE (4 ใบ)</h3>
+            <div className="flex gap-1">
+              {DURATION_OPTIONS.map((d) => (
+                <button
+                  key={d.id}
+                  onClick={() => handleDurationClick(d.tasteCount)}
+                  disabled={isShaking}
+                  className={`px-2 py-1 rounded text-[10px] ${
+                    d.tasteCount === tasteCount ? 'bg-wizard-teal text-white' : 'bg-white/70 text-wizard-ink/60'
+                  }`}
+                  title={`เปลี่ยนเป็น ${d.label} (TASTE ${d.tasteCount} ใบ) — ไม่กระทบ profile ทักษะที่ตั้งไว้`}
+                >
+                  {d.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {coreCards.map((c) => (
-              <div key={c.card_no} className="bg-white/70 rounded-lg p-2 text-sm flex flex-col items-center">
-                {cardImages[c.card_no] && (
-                  <img
-                    src={cardImages[c.card_no]}
-                    alt={c.nameTh}
-                    crossOrigin="anonymous"
-                    className="w-full h-40 object-contain bg-white rounded mb-2"
-                  />
-                )}
-                <span className="text-xs text-wizard-ink/50 self-start">{c.category}</span>
-                <div className="font-medium self-start">{c.nameTh}</div>
-                <div className="text-xs text-wizard-ink/60 self-start">{c.mechanic_name}</div>
-              </div>
+              <CardTile key={c.card_no} card={c} imgSrc={cardImages[c.card_no]} />
             ))}
           </div>
         </div>
 
         <div>
           <h3 className="text-sm font-semibold text-wizard-plum mb-2">TASTE ({tasteCards.length} ใบ)</h3>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {tasteCards.map((c) => (
-              <div key={c.card_no} className="bg-white/70 rounded-lg p-2 text-sm flex flex-col items-center">
-                {cardImages[c.card_no] && (
-                  <img
-                    src={cardImages[c.card_no]}
-                    alt={c.nameTh}
-                    crossOrigin="anonymous"
-                    className="w-full h-40 object-contain bg-white rounded mb-2"
-                  />
-                )}
-                <span className="text-xs text-wizard-ink/50 self-start">{c.category}</span>
-                <div className="font-medium self-start">{c.nameTh}</div>
-                <div className="text-xs text-wizard-ink/60 self-start">{c.mechanic_name}</div>
-              </div>
+              <CardTile key={c.card_no} card={c} imgSrc={cardImages[c.card_no]} />
             ))}
           </div>
         </div>
 
-        {gaps.length > 0 && (
-          <div>
-            <h3 className="text-sm font-semibold text-wizard-plum mb-1">🎯 ยังไม่ถึงเป้า</h3>
-            <p className="text-sm">{gaps.map((k) => SKILL_LABELS_TH[k]).join(', ')}</p>
-          </div>
-        )}
+        <div className="rounded-2xl bg-white border border-wizard-ink/10 p-4 space-y-3">
+          <h3 className="text-sm font-semibold text-wizard-plum">ผลลัพธ์ Learning Outcome</h3>
+          <img src={radarImgSrc} alt="ผลเทียบ learning outcome" className="w-full max-w-xs mx-auto" />
+          <p className="text-center text-xs text-wizard-ink/60">เส้นทอง = เป้าหมาย · พื้นเขียว = ชุดการ์ดนี้ให้จริง</p>
 
-        {caveats.length > 0 && (
-          <div>
-            <h3 className="text-sm font-semibold text-wizard-plum mb-1">⚠️ ข้อควรระวัง</h3>
-            <ul className="text-sm space-y-1">
-              {caveats.map((c) => (
-                <li key={c.card_no} className="bg-white/70 rounded-lg p-2">
-                  <span className="font-medium">{c.nameTh}</span>{' '}
-                  <span className="text-xs text-wizard-ink/50">(ความมั่นใจ: {c.skill_confidence})</span>
-                  <div className="text-xs text-wizard-ink/70 mt-0.5">{c.skill_rationale}</div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+          {gaps.length > 0 && (
+            <div>
+              <h4 className="text-sm font-semibold text-wizard-plum mb-1">🎯 ยังไม่ถึงเป้า</h4>
+              <p className="text-sm">{gaps.map((k) => SKILL_LABELS_TH[k]).join(', ')}</p>
+            </div>
+          )}
+
+          {caveats.length > 0 && (
+            <div>
+              <h4 className="text-sm font-semibold text-wizard-plum mb-1">⚠️ ข้อควรระวัง</h4>
+              <ul className="text-sm space-y-1">
+                {caveats.map((c) => (
+                  <li key={c.card_no} className="bg-wizard-mist/60 rounded-lg p-2">
+                    <span className="font-medium">{c.nameTh}</span>{' '}
+                    <span className="text-xs text-wizard-ink/50">(ความมั่นใจ: {c.skill_confidence})</span>
+                    <div className="text-xs text-wizard-ink/70 mt-0.5">{c.skill_rationale}</div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
 
         <div className="pt-2 border-t border-wizard-ink/10 text-[10px] text-wizard-ink/50 text-center">
           Wizard Hat Learning Outcome · Wizards of Learning
         </div>
+
+        {/* Promo footer — included in the exported PNG, same pattern as Tarot of Learning's shop-cta */}
+        <div className="rounded-xl bg-white/70 p-3 flex items-center gap-3">
+          <img
+            src={`${import.meta.env.BASE_URL}wizardhat-box.png`}
+            alt="Wizard Hat — Starter Pack"
+            crossOrigin="anonymous"
+            className="h-16 w-auto object-contain shrink-0"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+            }}
+          />
+          <div className="flex-1 min-w-0">
+            <p className="text-xs text-wizard-ink/80">อยากได้สำรับจริงไว้ใช้ออกแบบเกมเอง?</p>
+            <a
+              href={SHOPEE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-semibold text-wizard-plum underline"
+            >
+              🛒 สั่งซื้อ Wizard Hat — Wizards of Learning
+            </a>
+          </div>
+        </div>
       </div>
 
       <div className="flex gap-2 mt-4">
-        <button onClick={onRerun} className="flex-1 py-3 rounded-lg bg-wizard-teal text-white">
+        <button onClick={handleRerunClick} disabled={isShaking} className="flex-1 py-3 rounded-lg bg-wizard-teal text-white disabled:opacity-70">
           ลองชุดใหม่
         </button>
         <button onClick={exportPng} disabled={exporting} className="flex-1 py-3 rounded-lg bg-wizard-gold text-wizard-ink font-semibold disabled:opacity-50">

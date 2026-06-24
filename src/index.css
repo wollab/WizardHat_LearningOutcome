@@ -9,7 +9,17 @@ body {
   @apply bg-wizard-mist text-wizard-ink font-sans;
 }
 h1, h2, h3 {
-  font-family: 'Kanit', system-ui, sans-serif;
   font-weight: 700;
   color: #414141;
+}
+
+@keyframes deck-shake {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  20% { transform: translateX(-6px) rotate(-1deg); }
+  40% { transform: translateX(5px) rotate(1deg); }
+  60% { transform: translateX(-4px) rotate(-1deg); }
+  80% { transform: translateX(3px) rotate(0.5deg); }
+}
+.deck-shake {
+  animation: deck-shake 0.4s ease-in-out;
 }

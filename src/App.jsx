@@ -5,7 +5,7 @@ import CardCapture from './components/CardCapture.jsx';
 import CardConfirmList from './components/CardConfirmList.jsx';
 import OutcomeReport from './components/OutcomeReport.jsx';
 import { runSearch } from './lib/cardSearch.js';
-import { scoreCombination } from './lib/scoring.js';
+import { scoreCombination, DURATION_OPTIONS } from './lib/scoring.js';
 
 const MODE = { TARGET: 'target', RESULT: 'result' };
 const PHOTO_STEP = { CAPTURE: 'capture', CONFIRM: 'confirm', REPORT: 'report' };
@@ -15,24 +15,34 @@ export default function App() {
 
   const [mode, setMode] = useState(MODE.TARGET);
   const [target, setTarget] = useState(null);
+  const [tasteCount, setTasteCount] = useState(null);
   const [result, setResult] = useState(null);
 
   const [photoStep, setPhotoStep] = useState(PHOTO_STEP.CAPTURE);
   const [detectedCardNos, setDetectedCardNos] = useState([]);
   const [photoResult, setPhotoResult] = useState(null);
 
-  function handleTargetSubmit(t) {
-    setTarget(t);
-    setResult(runSearch(t));
+  function handleTargetSubmit({ targets, tasteCount: count }) {
+    setTarget(targets);
+    setTasteCount(count);
+    setResult(runSearch(targets, count));
     setMode(MODE.RESULT);
   }
 
   function handleRerun() {
-    setResult(runSearch(target));
+    setResult(runSearch(target, tasteCount));
   }
 
+  // Changing duration on the result screen swaps TASTE count only — the
+  // skill profile the deck is being matched against stays untouched.
+  function handleChangeDuration(count) {
+    setTasteCount(count);
+    setResult(runSearch(target, count));
+  }
+
+  // "ตั้งเป้าหมายใหม่" keeps target/tasteCount around so the form reopens
+  // pre-filled instead of resetting every skill back to 0.
   function handleRestart() {
-    setTarget(null);
     setResult(null);
     setMode(MODE.TARGET);
   }
@@ -82,9 +92,24 @@ export default function App() {
         <h1 className="text-2xl">Wizard Hat — Learning Outcome</h1>
       </header>
 
-      {mode === MODE.TARGET && <TargetProfileForm onSubmit={handleTargetSubmit} />}
+      {mode === MODE.TARGET && (
+        <TargetProfileForm
+          onSubmit={handleTargetSubmit}
+          initialTargets={target ?? undefined}
+          initialDurationIdx={
+            tasteCount != null ? DURATION_OPTIONS.findIndex((d) => d.tasteCount === tasteCount) : undefined
+          }
+        />
+      )}
       {mode === MODE.RESULT && result && (
-        <DeckResult result={result} target={target} onRerun={handleRerun} onRestart={handleRestart} />
+        <DeckResult
+          result={result}
+          target={target}
+          tasteCount={tasteCount}
+          onRerun={handleRerun}
+          onChangeDuration={handleChangeDuration}
+          onRestart={handleRestart}
+        />
       )}
 
       {mode === MODE.TARGET && (
