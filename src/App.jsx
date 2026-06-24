@@ -6,7 +6,8 @@ import CardConfirmList from './components/CardConfirmList.jsx';
 import OutcomeReport from './components/OutcomeReport.jsx';
 import CaseStudyGallery from './components/CaseStudyGallery.jsx';
 import { runSearch } from './lib/cardSearch.js';
-import { scoreCombination, DURATION_OPTIONS } from './lib/scoring.js';
+import { DURATION_OPTIONS } from './lib/scoring.js';
+import { assessDeck } from './lib/assessment.js';
 
 const MODE = { TARGET: 'target', RESULT: 'result' };
 const PHOTO_STEP = { CAPTURE: 'capture', CONFIRM: 'confirm', REPORT: 'report' };
@@ -73,7 +74,7 @@ export default function App() {
             <CardConfirmList
               detectedCardNos={detectedCardNos}
               onConfirm={(cardNos) => {
-                setPhotoResult(scoreCombination(cardNos, null));
+                setPhotoResult(assessDeck(cardNos));
                 setPhotoStep(PHOTO_STEP.REPORT);
               }}
             />

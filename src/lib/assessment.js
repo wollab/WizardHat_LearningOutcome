@@ -1,5 +1,14 @@
 import cards from '../data/wizard_hat_learning_data.json';
-import { SKILL_KEYS, SKILL_LABELS_TH } from './scoring.js';
+import {
+  DIMENSION_COLORS,
+  DIMENSION_KEYS,
+  DIMENSION_LABELS_TH,
+  DIMENSION_SUBLABELS_TH,
+  SKILL_DIMENSIONS,
+  SKILL_KEYS,
+  SKILL_LABELS_TH,
+  SKILL_TOOLTIPS_TH,
+} from './scoring.js';
 import wishlistImage from '../assets/cases/wishlist.png';
 import localElectionImage from '../assets/cases/local-election.png';
 import richmanGameImage from '../assets/cases/richman-game.png';
@@ -30,10 +39,29 @@ export const LEARNING_FUNCTION_LABELS_TH = {
   concrete_understanding: 'การทำเรื่องนามธรรมให้จับต้องได้',
 };
 
+export const LEARNING_FUNCTION_TOOLTIPS_TH = {
+  classification: 'ผู้เล่นต้องแยกประเภทหรือจัดวางสิ่งต่าง ๆ ตามเกณฑ์ที่มีความหมาย',
+  comparison: 'ผู้เล่นต้องเทียบทางเลือกหลายแบบก่อนเลือกสิ่งที่เหมาะที่สุด',
+  prioritization: 'ผู้เล่นต้องจัดลำดับว่าอะไรสำคัญกว่าเมื่อทรัพยากรหรือเวลามีจำกัด',
+  systems_thinking: 'ผู้เล่นต้องมองความเชื่อมโยงของหลายองค์ประกอบ ไม่ใช่มองจุดเดียวแยกขาด',
+  overlap_recognition: 'ผู้เล่นต้องเห็นว่าสถานการณ์หนึ่งอาจเกี่ยวข้องกับหลายหมวดหรือหลายประเด็นพร้อมกัน',
+  perspective_taking: 'ผู้เล่นต้องมองจากมุมของผู้เล่นอื่น บทบาทอื่น หรือผู้มีส่วนได้ส่วนเสียอื่น',
+  consequence_awareness: 'ผู้เล่นต้องเห็นผลกระทบของการตัดสินใจทั้งระยะสั้นและระยะยาว',
+  uncertainty_handling: 'ผู้เล่นต้องตัดสินใจหรือปรับตัวเมื่อข้อมูลไม่ครบหรือผลลัพธ์คาดเดาไม่ได้',
+  collaboration_under_constraint: 'ผู้เล่นต้องร่วมมือกันภายใต้ข้อจำกัดด้านข้อมูล เวลา หรือทรัพยากร',
+  concrete_understanding: 'กลไกช่วยทำให้เรื่องยากหรือ abstract กลายเป็นสิ่งที่เห็นและเข้าใจได้ง่ายขึ้น',
+};
+
 export const CONFIDENCE_LABELS_TH = {
   low: 'ต่ำ',
   medium: 'กลาง',
   high: 'สูง',
+};
+
+export const WOL_LABEL_TOOLTIPS_TH = {
+  core_mode: 'สรุปว่าชุดนี้บังคับให้ผู้เล่นใช้วิธีคิดหรือวิธีประมวลผลแบบไหนเป็นหลัก',
+  outcome_zone: 'สรุปว่าผลลัพธ์เด่นของชุดนี้กระจุกอยู่ในมิติการเรียนรู้แบบใดมากที่สุด',
+  evidence_confidence: 'บอกระดับความมั่นใจของการอ่านผลลัพธ์นี้จากความชัดของ mechanic mapping ไม่ใช่หลักฐาน playtest',
 };
 
 export const EXAMPLE_DECKS = [
@@ -137,6 +165,13 @@ function aggregateByAccumulation(selectedCards, keys, fieldName) {
   return result;
 }
 
+function normalizeConfidenceBucket(bucket) {
+  if (bucket === 'high' || bucket === 'medium' || bucket === 'low') return bucket;
+  if (bucket === 'medium-high') return 'medium';
+  if (bucket === 'low-medium') return 'low';
+  return 'medium';
+}
+
 function rankSignals(profile, labelMap, limit = 5, threshold = 1) {
   return Object.entries(profile)
     .filter(([, value]) => value >= threshold)
@@ -148,7 +183,7 @@ function rankSignals(profile, labelMap, limit = 5, threshold = 1) {
 function confidenceSummary(selectedCards) {
   const counts = { high: 0, medium: 0, low: 0 };
   for (const card of selectedCards) {
-    const bucket = card.skill_confidence || 'medium';
+    const bucket = normalizeConfidenceBucket(card.skill_confidence || 'medium');
     counts[bucket] = (counts[bucket] ?? 0) + 1;
   }
 
@@ -167,6 +202,54 @@ function confidenceSummary(selectedCards) {
     labelTh: CONFIDENCE_LABELS_TH[level],
     reasons,
   };
+}
+
+function buildDimensionProfile(skillProfile) {
+  return DIMENSION_KEYS.map((dimensionKey) => {
+    const skills = SKILL_KEYS.filter((skillKey) => SKILL_DIMENSIONS[skillKey] === dimensionKey);
+    const total = skills.reduce((sum, skillKey) => sum + (skillProfile[skillKey] ?? 0), 0);
+    const average = Number((total / skills.length).toFixed(1));
+    return {
+      key: dimensionKey,
+      label: DIMENSION_LABELS_TH[dimensionKey],
+      sublabel: DIMENSION_SUBLABELS_TH[dimensionKey],
+      color: DIMENSION_COLORS[dimensionKey],
+      average,
+      skills,
+    };
+  }).sort((a, b) => b.average - a.average);
+}
+
+function buildWolReadingLabels(learningProfile, dimensionProfile, confidence) {
+  const topFunctions = rankSignals(learningProfile, LEARNING_FUNCTION_LABELS_TH, 2, 1);
+  const topDimensions = dimensionProfile.filter((dimension) => dimension.average >= 1).slice(0, 2);
+
+  return [
+    {
+      key: 'core_mode',
+      label: 'วิธีคิดหลัก',
+      summary:
+        topFunctions.length > 0
+          ? topFunctions.map((item) => item.label).join(' + ')
+          : 'ยังไม่เห็นรูปแบบการคิดที่เด่นชัดพอ',
+      tooltip: WOL_LABEL_TOOLTIPS_TH.core_mode,
+    },
+    {
+      key: 'outcome_zone',
+      label: 'มิติการเรียนรู้เด่น',
+      summary:
+        topDimensions.length > 0
+          ? topDimensions.map((dimension) => dimension.label).join(' + ')
+          : 'ยังไม่เห็นมิติผลลัพธ์ที่เด่นชัดพอ',
+      tooltip: WOL_LABEL_TOOLTIPS_TH.outcome_zone,
+    },
+    {
+      key: 'evidence_confidence',
+      label: 'ความมั่นใจของผลลัพธ์',
+      summary: `${confidence.labelTh} · ${confidence.reasons[0]}`,
+      tooltip: WOL_LABEL_TOOLTIPS_TH.evidence_confidence,
+    },
+  ];
 }
 
 function collectActionSummaries(selectedCards) {
@@ -249,21 +332,36 @@ export function getCardsForAssessment(cardNos) {
     });
 }
 
-export function assessDeck(cardNos) {
-  const selectedCards = getCardsForAssessment(cardNos);
+export function buildOutcomeLens(selectedCards, skillProfile) {
   const learningProfile = aggregateByAccumulation(selectedCards, LEARNING_FUNCTION_KEYS, 'learning_functions');
-  const skillProfile = aggregateByAccumulation(selectedCards, SKILL_KEYS, 'skills');
-
   const topLearningFunctions = rankSignals(learningProfile, LEARNING_FUNCTION_LABELS_TH, 5, 1);
   const topSkills = rankSignals(skillProfile, SKILL_LABELS_TH, 5, 1);
   const confidence = confidenceSummary(selectedCards);
+  const dimensionProfile = buildDimensionProfile(skillProfile);
+  const wolReadingLabels = buildWolReadingLabels(learningProfile, dimensionProfile, confidence);
+  const allSkills = SKILL_KEYS.map((key) => ({
+    key,
+    label: SKILL_LABELS_TH[key],
+    value: skillProfile[key] ?? 0,
+    tooltip: SKILL_TOOLTIPS_TH[key],
+    dimension: SKILL_DIMENSIONS[key],
+  }));
+  const allLearningFunctions = LEARNING_FUNCTION_KEYS.map((key) => ({
+    key,
+    label: LEARNING_FUNCTION_LABELS_TH[key],
+    value: learningProfile[key] ?? 0,
+    tooltip: LEARNING_FUNCTION_TOOLTIPS_TH[key],
+  }));
 
   return {
-    selectedCards,
     learningProfile,
     skillProfile,
+    dimensionProfile,
     topLearningFunctions,
     topSkills,
+    allSkills,
+    allLearningFunctions,
+    wolReadingLabels,
     actionSummaries: collectActionSummaries(selectedCards),
     rewardSummary: summarizeLayer(selectedCards, 'Reward', 'reward_mindset_effect', 'ยังไม่มีการ์ด Reward จึงยังไม่ชัดว่าระบบกำลังฝึก mindset แบบไหน'),
     endingSummary: summarizeLayer(selectedCards, 'Ending', 'ending_pressure_effect', 'ยังไม่มีการ์ด Ending จึงยังไม่ชัดว่าแรงกดดันภายนอกมาจากอะไร'),
@@ -276,5 +374,15 @@ export function assessDeck(cardNos) {
       'การ์ด Reward, Ending และ Touch ควรอ่านเป็น mindset, pressure และ concretization support มากกว่าจะตีเป็น skill ตรง ๆ',
       'หากจะใช้กับเกมจริง ควรปรับเพิ่มตาม frequency, consequence, complexity และ reflection ของเกมนั้น',
     ],
+  };
+}
+
+export function assessDeck(cardNos) {
+  const selectedCards = getCardsForAssessment(cardNos);
+  const skillProfile = aggregateByAccumulation(selectedCards, SKILL_KEYS, 'skills');
+
+  return {
+    selectedCards,
+    ...buildOutcomeLens(selectedCards, skillProfile),
   };
 }

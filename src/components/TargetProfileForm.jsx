@@ -1,6 +1,15 @@
 import { useState } from 'react';
-import { SKILL_KEYS, SKILL_LABELS_TH, SKILL_COLORS, DURATION_OPTIONS } from '../lib/scoring.js';
+import {
+  DURATION_OPTIONS,
+  SKILL_COLORS,
+  SKILL_KEYS,
+  SKILL_LABELS_TH,
+  SKILL_TOOLTIPS_TH,
+  UNICEF_REFERENCE,
+  groupSkillsByDimension,
+} from '../lib/scoring.js';
 import RadarChart from './RadarChart.jsx';
+import InfoTooltip from './InfoTooltip.jsx';
 
 const DEFAULT_DURATION_IDX = 1; // 30–40 นาที / 3 ใบ TASTE
 
@@ -37,6 +46,7 @@ export default function TargetProfileForm({ onSubmit, initialTargets, initialDur
   }
 
   const hasAnyTarget = Object.values(targets).some((v) => v > 0);
+  const groupedSkills = groupSkillsByDimension();
 
   return (
     <div className="max-w-3xl mx-auto p-6">
@@ -79,38 +89,54 @@ export default function TargetProfileForm({ onSubmit, initialTargets, initialDur
             series={[{ values: targets, color: '#74c0fc', fillOpacity: 0.4 }]}
             axisColors={SKILL_COLORS}
           />
+          <p className="text-[11px] text-center text-wizard-ink/55 mt-3">
+            <a href={UNICEF_REFERENCE.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+              {UNICEF_REFERENCE.sourceText}
+            </a>{' '}
+            · {UNICEF_REFERENCE.shortLabel}
+          </p>
         </div>
 
-        <div className="space-y-2">
-          {SKILL_KEYS.map((key) => (
-            <div key={key} className="flex items-center justify-between gap-2">
-              <span className="text-sm flex items-center gap-2">
-                <span
-                  className="inline-block w-2.5 h-2.5 rounded-full shrink-0"
-                  style={{ backgroundColor: SKILL_COLORS[key] }}
-                />
-                {SKILL_LABELS_TH[key]}
-              </span>
-              <div className="flex gap-1">
-                {[0, 1, 2, 3].map((lvl) => {
-                  const wouldExceed = pointsUsed - targets[key] + lvl > duration.pointBudget;
-                  const isActive = targets[key] === lvl;
-                  return (
-                    <button
-                      key={lvl}
-                      onClick={() => setLevel(key, lvl)}
-                      disabled={wouldExceed && !isActive}
-                      className="w-7 h-7 rounded text-xs disabled:opacity-30"
-                      style={
-                        isActive
-                          ? { backgroundColor: SKILL_COLORS[key], color: '#fff' }
-                          : { backgroundColor: 'rgba(255,255,255,0.7)', color: '#41414199' }
-                      }
-                    >
-                      {lvl}
-                    </button>
-                  );
-                })}
+        <div className="space-y-3">
+          {groupedSkills.map((group) => (
+            <div key={group.key} className="rounded-2xl bg-white border border-wizard-ink/10 p-3 space-y-2">
+              <div className="text-sm font-semibold" style={{ color: group.color }}>
+                {group.label}
+              </div>
+              <div className="space-y-2">
+                {group.skills.map((key) => (
+                  <div key={key} className="flex items-center justify-between gap-2">
+                    <span className="text-sm flex items-center gap-2 min-w-0">
+                      <span
+                        className="inline-block w-2.5 h-2.5 rounded-full shrink-0"
+                        style={{ backgroundColor: SKILL_COLORS[key] }}
+                      />
+                      <span className="truncate">{SKILL_LABELS_TH[key]}</span>
+                      <InfoTooltip text={SKILL_TOOLTIPS_TH[key]} />
+                    </span>
+                    <div className="flex gap-1 shrink-0">
+                      {[0, 1, 2, 3].map((lvl) => {
+                        const wouldExceed = pointsUsed - targets[key] + lvl > duration.pointBudget;
+                        const isActive = targets[key] === lvl;
+                        return (
+                          <button
+                            key={lvl}
+                            onClick={() => setLevel(key, lvl)}
+                            disabled={wouldExceed && !isActive}
+                            className="w-7 h-7 rounded text-xs disabled:opacity-30"
+                            style={
+                              isActive
+                                ? { backgroundColor: SKILL_COLORS[key], color: '#fff' }
+                                : { backgroundColor: 'rgba(255,255,255,0.7)', color: '#41414199' }
+                            }
+                          >
+                            {lvl}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           ))}

@@ -19,7 +19,7 @@ function polygonPoints(values) {
 // Long Thai skill labels ("การเคารพความหลากหลาย") are wider than the 36px ring
 // margin and get clipped at the viewBox edge — pad the visible canvas well
 // beyond the 0–SIZE drawing area so label text always has room to extend.
-const PAD = 60;
+const PAD = 78;
 
 // axisColors: optional { skillKey: '#hex' } — colors the vertex dot + label
 // per skill instead of the uniform ink gray (used on the target-setting page
@@ -77,7 +77,7 @@ export default function RadarChart({ series, axisColors }) {
             key={key}
             x={x}
             y={y}
-            fontSize="9"
+            fontSize="8.5"
             textAnchor={align}
             dominantBaseline="middle"
             fill={axisColors ? axisColors[key] : '#414141'}

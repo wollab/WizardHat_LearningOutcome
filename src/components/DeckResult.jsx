@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { toPng } from 'html-to-image';
 import RadarChart from './RadarChart.jsx';
-import { SKILL_KEYS, SKILL_LABELS_TH, CATEGORY_COLORS, DURATION_OPTIONS } from '../lib/scoring.js';
+import OutcomeSummaryPanel from './OutcomeSummaryPanel.jsx';
+import { buildOutcomeLens } from '../lib/assessment.js';
+import { SKILL_KEYS, SKILL_LABELS_TH, SKILL_COLORS, CATEGORY_COLORS, DURATION_OPTIONS } from '../lib/scoring.js';
 import { getCardImages } from '../lib/api.js';
 
 // html-to-image rasterizes its target via an SVG wrapper; a *nested* inline
@@ -21,8 +23,8 @@ function CardTile({ card, imgSrc }) {
   const accent = CATEGORY_COLORS[card.category] ?? '#414141';
   return (
     <div
-      className="bg-white rounded-lg p-2 text-sm flex flex-col items-center border-2"
-      style={{ borderColor: accent }}
+      className="bg-white rounded-xl p-3 text-sm flex flex-col items-center border shadow-sm"
+      style={{ borderColor: accent, borderWidth: 3 }}
     >
       {imgSrc && (
         <img
@@ -32,7 +34,7 @@ function CardTile({ card, imgSrc }) {
           className="w-full h-40 object-contain bg-white rounded mb-2"
         />
       )}
-      <span className="text-xs self-start font-medium" style={{ color: accent }}>
+      <span className="text-xs self-start font-semibold" style={{ color: accent }}>
         {card.category}
       </span>
       <div className="font-medium self-start">{card.nameTh}</div>
@@ -50,9 +52,11 @@ export default function DeckResult({ result, target, tasteCount, onRerun, onChan
   const tasteCards = selected.filter((c) => !CORE_CATEGORIES.includes(c.category));
 
   const gaps = SKILL_KEYS.filter((k) => (target[k] ?? 0) > skills[k].achieved);
+  const achievedProfile = Object.fromEntries(SKILL_KEYS.map((k) => [k, skills[k].achieved]));
+  const outcomeLens = buildOutcomeLens(selected, achievedProfile);
 
   const caveats = selected.filter(
-    (c) => c.skill_confidence === 'low' || c.skill_confidence === 'medium'
+    (c) => ['low', 'medium', 'low-medium', 'medium-high'].includes(c.skill_confidence)
   );
 
   const radarSeries = [
@@ -64,7 +68,7 @@ export default function DeckResult({ result, target, tasteCount, onRerun, onChan
       label: 'ได้จริง',
     },
   ];
-  const radarImgSrc = svgToDataUri(<RadarChart series={radarSeries} />);
+  const radarImgSrc = svgToDataUri(<RadarChart series={radarSeries} axisColors={SKILL_COLORS} />);
 
   const [cardImages, setCardImages] = useState({});
   useEffect(() => {
@@ -175,21 +179,49 @@ export default function DeckResult({ result, target, tasteCount, onRerun, onChan
           </div>
         </div>
 
-        <div className="rounded-2xl bg-white border border-wizard-ink/10 p-4 space-y-3">
-          <h3 className="text-sm font-semibold text-wizard-plum">ผลลัพธ์ Learning Outcome</h3>
-          <img src={radarImgSrc} alt="ผลเทียบ learning outcome" className="w-full max-w-xs mx-auto" />
-          <p className="text-center text-xs text-wizard-ink/60">เส้นทอง = เป้าหมาย · พื้นเขียว = ชุดการ์ดนี้ให้จริง</p>
+        <OutcomeSummaryPanel
+          title="ผลลัพธ์ Learning Outcome"
+          subtitle="อ่านผลลัพธ์ทั้งในมุม UNICEF transferable skills และ outcome layer ของ WoL ในกล่องเดียว"
+          radarSeries={radarSeries}
+          radarImageSrc={radarImgSrc}
+          radarCaption="เส้นทอง = เป้าหมาย · พื้นเขียว = ชุดการ์ดนี้ให้จริง"
+          allSkills={outcomeLens.allSkills}
+          allLearningFunctions={outcomeLens.allLearningFunctions}
+          wolReadingLabels={outcomeLens.wolReadingLabels}
+          confidence={outcomeLens.confidence}
+        />
 
-          {gaps.length > 0 && (
+        <div className="rounded-2xl bg-white border border-wizard-ink/10 p-4 space-y-4">
+          <h3 className="text-sm font-semibold text-wizard-plum">คำแนะนำและข้อควรระวัง</h3>
+
+          {gaps.length > 0 ? (
             <div>
-              <h4 className="text-sm font-semibold text-wizard-plum mb-1">🎯 ยังไม่ถึงเป้า</h4>
+              <h4 className="text-sm font-semibold text-wizard-plum mb-1">ยังไม่ถึงเป้า</h4>
               <p className="text-sm">{gaps.map((k) => SKILL_LABELS_TH[k]).join(', ')}</p>
             </div>
-          )}
+          ) : null}
+
+          <div>
+            <h4 className="text-sm font-semibold text-wizard-plum mb-1">จุดบอดที่ควรเฝ้าดู</h4>
+            <ul className="text-sm space-y-1 text-wizard-ink/80">
+              {outcomeLens.blindSpots.map((note) => (
+                <li key={note}>• {note}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold text-wizard-plum mb-1">คำแนะนำต่อยอด</h4>
+            <ul className="text-sm space-y-1 text-wizard-ink/80">
+              {outcomeLens.recommendations.map((note) => (
+                <li key={note}>• {note}</li>
+              ))}
+            </ul>
+          </div>
 
           {caveats.length > 0 && (
             <div>
-              <h4 className="text-sm font-semibold text-wizard-plum mb-1">⚠️ ข้อควรระวัง</h4>
+              <h4 className="text-sm font-semibold text-wizard-plum mb-1">การ์ดที่ควรอ่านอย่างระมัดระวัง</h4>
               <ul className="text-sm space-y-1">
                 {caveats.map((c) => (
                   <li key={c.card_no} className="bg-wizard-mist/60 rounded-lg p-2">

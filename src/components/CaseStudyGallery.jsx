@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
-import RadarChart from './RadarChart.jsx';
+import OutcomeSummaryPanel from './OutcomeSummaryPanel.jsx';
 import { CASE_STUDIES, assessDeck } from '../lib/assessment.js';
-import { SKILL_KEYS, SKILL_LABELS_TH, CATEGORY_COLORS } from '../lib/scoring.js';
+import { CATEGORY_COLORS, SKILL_LABELS_TH } from '../lib/scoring.js';
 import { getCardImages } from '../lib/api.js';
 
 const CATEGORY_LABELS_TH = {
@@ -56,7 +56,7 @@ function BoxImage({ title, src, caption }) {
 function CardChip({ card, imgSrc }) {
   const accent = CATEGORY_COLORS[card.category] ?? '#414141';
   return (
-    <div className="rounded-2xl bg-white border border-wizard-ink/10 p-3 space-y-2">
+    <div className="rounded-2xl bg-white border p-3 space-y-2 shadow-sm" style={{ borderColor: accent, borderWidth: 3 }}>
       <div
         className="text-[11px] font-semibold inline-flex items-center rounded-full px-2 py-1"
         style={{ backgroundColor: `${accent}22`, color: accent }}
@@ -118,10 +118,6 @@ export default function CaseStudyGallery() {
   const activeStudy = studies.find((study) => study.id === activeId) ?? studies[0];
 
   if (!activeStudy) return null;
-
-  const achieved = Object.fromEntries(
-    SKILL_KEYS.map((key) => [key, activeStudy.result.skillProfile[key] ?? 0])
-  );
 
   return (
     <div className="max-w-6xl mx-auto p-6 space-y-8">
@@ -187,25 +183,16 @@ export default function CaseStudyGallery() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-6">
-          <SectionCard title="สรุปผลแบบกราฟ" subtitle="ใช้เรดาร์แบบเดียวกับหน้าตั้งเป้าหมายเพื่อให้อ่านง่ายต่อเนื่อง">
-            <RadarChart
-              series={[{ values: achieved, color: '#50C2C0', fillOpacity: 0.45, label: 'ผลลัพธ์ที่คาด' }]}
-            />
-            <p className="text-xs text-center text-wizard-ink/60">
-              พื้นที่สีเขียวแสดงระดับผลลัพธ์ที่ชุดการ์ดนี้มีแนวโน้มกระตุ้น
-            </p>
-          </SectionCard>
-
-          <div className="space-y-6">
-            <SectionCard title="ผลการเรียนรู้ที่เด่น">
-              <SkillHighlights items={activeStudy.result.topLearningFunctions} />
-            </SectionCard>
-            <SectionCard title="ทักษะที่น่าจะถูกกระตุ้น">
-              <SkillHighlights items={activeStudy.result.topSkills} />
-            </SectionCard>
-          </div>
-        </div>
+        <OutcomeSummaryPanel
+          title="ภาพรวม Learning Outcome"
+          subtitle="ใช้วงล้อ UNICEF เป็นแกนหลัก และอ่านเสริมด้วย learning functions กับ WoL labels"
+          radarSeries={[{ values: activeStudy.result.skillProfile, color: '#50C2C0', fillOpacity: 0.45, label: 'ผลลัพธ์ที่คาด' }]}
+          radarCaption="พื้นที่สีเขียวแสดงระดับผลลัพธ์ที่ชุดการ์ดนี้มีแนวโน้มกระตุ้น"
+          allSkills={activeStudy.result.allSkills}
+          allLearningFunctions={activeStudy.result.allLearningFunctions}
+          wolReadingLabels={activeStudy.result.wolReadingLabels}
+          confidence={activeStudy.result.confidence}
+        />
 
         <div className="grid lg:grid-cols-3 gap-6">
           <SectionCard title="พฤติกรรมผู้เล่นที่น่าจะเกิดขึ้น">
@@ -228,12 +215,20 @@ export default function CaseStudyGallery() {
             </ul>
           </SectionCard>
 
-          <SectionCard title="ข้อควรระวัง">
+          <SectionCard title="คำแนะนำและข้อควรระวัง">
             <ul className="list-disc pl-5 space-y-2 text-sm text-wizard-ink/80">
               {activeStudy.result.blindSpots.map((note) => (
                 <li key={`${activeStudy.id}-${note}`}>{note}</li>
               ))}
             </ul>
+            <div className="pt-3 border-t border-wizard-ink/10">
+              <div className="text-sm font-semibold text-wizard-plum mb-2">คำแนะนำต่อยอด</div>
+              <ul className="list-disc pl-5 space-y-2 text-sm text-wizard-ink/80">
+                {activeStudy.result.recommendations.map((note) => (
+                  <li key={`${activeStudy.id}-${note}`}>{note}</li>
+                ))}
+              </ul>
+            </div>
           </SectionCard>
         </div>
 
@@ -245,31 +240,21 @@ export default function CaseStudyGallery() {
           </div>
         </SectionCard>
 
-        <div className="grid lg:grid-cols-2 gap-6">
-          <SectionCard title="คำแนะนำต่อยอด">
-            <ul className="list-disc pl-5 space-y-2 text-sm text-wizard-ink/80">
-              {activeStudy.result.recommendations.map((note) => (
-                <li key={`${activeStudy.id}-${note}`}>{note}</li>
-              ))}
-            </ul>
-          </SectionCard>
-
-          <SectionCard title="สรุปสั้นสำหรับใช้คุยงาน">
-            <div className="space-y-2 text-sm">
-              <p>
-                <span className="font-medium">จุดเด่น:</span>{' '}
-                {activeStudy.result.topLearningFunctions.map((item) => item.label).join(', ')}
-              </p>
-              <p>
-                <span className="font-medium">ทักษะที่เด่น:</span>{' '}
-                {activeStudy.result.topSkills.map((item) => SKILL_LABELS_TH[item.key]).join(', ')}
-              </p>
-              <p>
-                <span className="font-medium">คำแนะนำสั้นที่สุด:</span> {activeStudy.result.recommendations[0]}
-              </p>
-            </div>
-          </SectionCard>
-        </div>
+        <SectionCard title="สรุปสั้นสำหรับใช้คุยงาน">
+          <div className="space-y-2 text-sm">
+            <p>
+              <span className="font-medium">จุดเด่น:</span>{' '}
+              {activeStudy.result.topLearningFunctions.map((item) => item.label).join(', ')}
+            </p>
+            <p>
+              <span className="font-medium">ทักษะที่เด่น:</span>{' '}
+              {activeStudy.result.topSkills.map((item) => SKILL_LABELS_TH[item.key]).join(', ')}
+            </p>
+            <p>
+              <span className="font-medium">คำแนะนำสั้นที่สุด:</span> {activeStudy.result.recommendations[0]}
+            </p>
+          </div>
+        </SectionCard>
       </section>
     </div>
   );
