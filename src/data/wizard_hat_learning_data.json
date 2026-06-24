@@ -26,6 +26,21 @@
       "respect_for_diversity": 0,
       "participation": 1
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 1,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "",
+    "learning_function_rationale": "Competition trains people to compare position and choose what matters most under pressure.",
+    "learning_function_notes": "Mostly a pressure frame, not a direct content-learning function.",
     "skill_rationale": "Competitive structure creates pressure, but the skill profile mostly comes from other mechanics.",
     "skill_confidence": "medium",
     "demands": {
@@ -65,6 +80,21 @@
       "respect_for_diversity": 0,
       "participation": 2
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 0,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 3,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "collaboration under constraint",
+    "learning_function_rationale": "Co-operation turns success into a shared coordination problem rather than a solo optimization problem.",
+    "learning_function_notes": "Best when the rest of the design creates real interdependence.",
     "skill_rationale": "Strong bridge to collaboration, but not all co-op games produce empathy.",
     "skill_confidence": "high",
     "demands": {
@@ -103,6 +133,21 @@
       "respect_for_diversity": 0,
       "participation": 2
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 1,
+      "consequence_awareness": 0,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 2,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "collaboration under constraint",
+    "learning_function_rationale": "Team structure requires players to align with allies while tracking competing intentions.",
+    "learning_function_notes": "Perspective-taking rises when teams must read one another, not just act in parallel.",
     "skill_rationale": "Team structure raises collaboration faster than pure competition.",
     "skill_confidence": "high",
     "demands": {
@@ -143,6 +188,21 @@
       "respect_for_diversity": 0,
       "participation": 1
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 1,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 1,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "",
+    "learning_function_rationale": "Solo structure foregrounds system diagnosis, sequencing, and learning from feedback.",
+    "learning_function_notes": "Useful for analytical learning, not social learning.",
     "skill_rationale": "Useful for cognitive skill activation, not social skill claims.",
     "skill_confidence": "medium",
     "demands": {
@@ -183,6 +243,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 1,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "",
+    "learning_function_rationale": "Stable order mainly supports pacing and turn-window planning.",
+    "learning_function_notes": "Modifier rather than core learning function.",
     "skill_rationale": "Usually a modifier, not a strong skill source by itself.",
     "skill_confidence": "medium",
     "demands": {
@@ -223,6 +298,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 1,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 2,
+      "collaboration_under_constraint": 1,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "uncertainty handling",
+    "learning_function_rationale": "Simultaneous selection makes players commit before they fully know others' moves.",
+    "learning_function_notes": "Collaboration effect rises in co-op or team contexts.",
     "skill_rationale": "The skill impact depends heavily on whether the game is cooperative, social, or tactical.",
     "skill_confidence": "medium",
     "demands": {
@@ -262,6 +352,21 @@
       "respect_for_diversity": 0,
       "participation": 1
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 2,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 1,
+      "collaboration_under_constraint": 1,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "prioritization",
+    "learning_function_rationale": "Real-time play compresses analysis and pushes rapid filtering and response.",
+    "learning_function_notes": "Often more about speed of processing than depth of understanding.",
     "skill_rationale": "Real-time pressure changes mindset more than it proves deep understanding.",
     "skill_confidence": "medium",
     "demands": {
@@ -300,6 +405,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 2,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 2,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "prioritization; consequence awareness",
+    "learning_function_rationale": "Changing order makes tempo itself a trade-off to reason about.",
+    "learning_function_notes": "Strong order card because it makes timing strategic.",
     "skill_rationale": "Strong order card because order itself becomes a meaningful decision.",
     "skill_confidence": "high",
     "demands": {
@@ -340,6 +460,21 @@
       "respect_for_diversity": 0,
       "participation": 1
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 2,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 1,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "prioritization",
+    "learning_function_rationale": "Race structures train fast priority choices over exhaustive optimization.",
+    "learning_function_notes": "Strong mindset shaper for urgency.",
     "skill_rationale": "Useful for mindset shaping: move now, refine less.",
     "skill_confidence": "high",
     "demands": {
@@ -379,6 +514,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 1,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "",
+    "learning_function_rationale": "Elimination makes risk visible, but is weak as a constructive learning-function on its own.",
+    "learning_function_notes": "Use cautiously.",
     "skill_rationale": "Do not overclaim learning value from elimination alone.",
     "skill_confidence": "low",
     "demands": {
@@ -418,6 +568,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 2,
+      "prioritization": 2,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "comparison; prioritization",
+    "learning_function_rationale": "Victory-point systems train players to weigh efficiency, worth, and return on action.",
+    "learning_function_notes": "Strong fit for evaluative thinking.",
     "skill_rationale": "Good reward card for analysis-heavy games.",
     "skill_confidence": "high",
     "demands": {
@@ -458,6 +623,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 2,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 1,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "prioritization",
+    "learning_function_rationale": "A known horizon trains backward planning and pacing.",
+    "learning_function_notes": "Works best as a pressure modifier.",
     "skill_rationale": "External pressure that changes pacing decisions.",
     "skill_confidence": "medium",
     "demands": {
@@ -498,6 +678,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 1,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 2,
+      "uncertainty_handling": 1,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "consequence awareness",
+    "learning_function_rationale": "Finite resources make scarcity visible and force players to reason about depletion.",
+    "learning_function_notes": "Strong ending card for scarcity logic.",
     "skill_rationale": "Important ending card because it changes the shape of opportunity.",
     "skill_confidence": "high",
     "demands": {
@@ -537,6 +732,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 2,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 1,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "prioritization",
+    "learning_function_rationale": "A hard clock narrows attention and trains triage rather than comprehensive analysis.",
+    "learning_function_notes": "Pressure layer more than direct content-learning.",
     "skill_rationale": "Usually a pressure modifier, not a learning claim by itself.",
     "skill_confidence": "medium",
     "demands": {
@@ -576,6 +786,21 @@
       "respect_for_diversity": 0,
       "participation": 1
     },
+    "learning_functions": {
+      "classification": 1,
+      "comparison": 0,
+      "prioritization": 1,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 1,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "",
+    "learning_function_rationale": "Target systems focus attention on whether actions serve concrete objectives.",
+    "learning_function_notes": "Useful for mission-based learning.",
     "skill_rationale": "Useful reward structure for mission logic, but still depends on the surrounding mechanics.",
     "skill_confidence": "medium-high",
     "demands": {
@@ -614,6 +839,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 1,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 1,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "",
+    "learning_function_rationale": "Event-count endings shape pacing by making trigger accumulation matter.",
+    "learning_function_notes": "Mostly structural.",
     "skill_rationale": "Mostly a structural pressure source.",
     "skill_confidence": "low-medium",
     "demands": {
@@ -653,6 +893,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 2,
+      "comparison": 1,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 2,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "classification; uncertainty handling",
+    "learning_function_rationale": "Deduction requires players to sort evidence, eliminate possibilities, and act without full certainty.",
+    "learning_function_notes": "One of the strongest direct learning-function bridges.",
     "skill_rationale": "One of the strongest direct bridges to critical thinking.",
     "skill_confidence": "high",
     "demands": {
@@ -693,6 +948,21 @@
       "respect_for_diversity": 0,
       "participation": 1
     },
+    "learning_functions": {
+      "classification": 2,
+      "comparison": 1,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 1,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "classification",
+    "learning_function_rationale": "Pattern and matching mechanics train recognition of valid fit under explicit constraints.",
+    "learning_function_notes": "Often procedural unless paired with richer consequence.",
     "skill_rationale": "Usually procedural unless layered with more complex consequence.",
     "skill_confidence": "medium",
     "demands": {
@@ -732,6 +1002,21 @@
       "respect_for_diversity": 0,
       "participation": 2
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 1,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 1,
+      "collaboration_under_constraint": 3,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "collaboration under constraint",
+    "learning_function_rationale": "Communication limits force players to coordinate with incomplete signal bandwidth.",
+    "learning_function_notes": "Excellent bridge for constrained coordination.",
     "skill_rationale": "Excellent bridge for communication, but empathy depends on whether perspective-taking is truly required.",
     "skill_confidence": "high",
     "demands": {
@@ -772,6 +1057,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 1,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "",
+    "learning_function_rationale": "Players must live with variance after choice, which only becomes meaningful when they can adapt.",
+    "learning_function_notes": "Do not overread it.",
     "skill_rationale": "Randomness alone does not prove resilience.",
     "skill_confidence": "medium",
     "demands": {
@@ -811,6 +1111,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 0,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 2,
+      "uncertainty_handling": 2,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "consequence awareness; uncertainty handling",
+    "learning_function_rationale": "Events make external change visible and force reprioritization.",
+    "learning_function_notes": "Good when the event materially changes the system.",
     "skill_rationale": "Useful for resilience only when players can meaningfully adapt.",
     "skill_confidence": "medium-high",
     "demands": {
@@ -850,6 +1165,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 1,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 2,
+      "uncertainty_handling": 3,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "consequence awareness; uncertainty handling",
+    "learning_function_rationale": "Push-your-luck directly trains stop-or-go reasoning under rising risk.",
+    "learning_function_notes": "Strong bridge because the trade-off is built into the loop.",
     "skill_rationale": "Strong bridge because the mechanic itself creates trade-off and consequence.",
     "skill_confidence": "high",
     "demands": {
@@ -889,6 +1219,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 1,
+      "comparison": 1,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 1,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "",
+    "learning_function_rationale": "Memory mechanics reinforce accurate retrieval of prior states and hidden locations.",
+    "learning_function_notes": "Cognitive support more than broad learning transfer.",
     "skill_rationale": "Memory supports cognition, but not broad transferable-skill claims by itself.",
     "skill_confidence": "medium",
     "demands": {
@@ -928,6 +1273,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 0,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 2,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "uncertainty handling",
+    "learning_function_rationale": "Changing rules require players to update the model they are using to act.",
+    "learning_function_notes": "Useful for adaptive understanding.",
     "skill_rationale": "A flexible-thinking modifier more than a direct learning claim.",
     "skill_confidence": "medium",
     "demands": {
@@ -968,6 +1328,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 1,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 1,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "",
+    "learning_function_rationale": "Different starts or powers help players see that position and capability shape action.",
+    "learning_function_notes": "Good for role and scenario differentiation.",
     "skill_rationale": "Good variability source, but usually not enough for a strong learning claim alone.",
     "skill_confidence": "medium",
     "demands": {
@@ -1007,6 +1382,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 2,
+      "prioritization": 1,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 1,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "comparison",
+    "learning_function_rationale": "Markets and exchanges train value comparison and reading what is worth what under changing conditions.",
+    "learning_function_notes": "Perspective-taking rises when value depends on other players.",
     "skill_rationale": "Strong bridge for economic reasoning.",
     "skill_confidence": "high",
     "demands": {
@@ -1046,6 +1436,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 2,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 3,
+      "uncertainty_handling": 1,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "prioritization; consequence awareness",
+    "learning_function_rationale": "Loans and scarcity make future cost, shortage, and trade-off visible.",
+    "learning_function_notes": "Excellent for consequence-rich reasoning.",
     "skill_rationale": "One of the clearest direct bridges to financial and strategic judgment.",
     "skill_confidence": "high",
     "demands": {
@@ -1085,6 +1490,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 1,
+      "systems_thinking": 2,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 2,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "systems thinking; consequence awareness",
+    "learning_function_rationale": "Investment and recurring return mechanics make delayed effects and system growth concrete.",
+    "learning_function_notes": "Strong bridge for long-term reasoning.",
     "skill_rationale": "Strong bridge for planning and financial reasoning.",
     "skill_confidence": "high",
     "demands": {
@@ -1125,6 +1545,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 2,
+      "comparison": 1,
+      "prioritization": 1,
+      "systems_thinking": 0,
+      "overlap_recognition": 1,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "classification",
+    "learning_function_rationale": "Set collection trains grouping, completion logic, and synergy detection.",
+    "learning_function_notes": "Overlap rises when a piece can advance more than one set logic.",
     "skill_rationale": "Useful planning signal, but often light unless scarcity is sharp.",
     "skill_confidence": "medium",
     "demands": {
@@ -1164,6 +1599,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 2,
+      "prioritization": 1,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 2,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "comparison; consequence awareness",
+    "learning_function_rationale": "Changing values force continuous re-evaluation rather than static pricing.",
+    "learning_function_notes": "Good for dynamic judgment.",
     "skill_rationale": "Strong bridge for analytical adaptation.",
     "skill_confidence": "high",
     "demands": {
@@ -1203,6 +1653,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 1,
+      "comparison": 1,
+      "prioritization": 2,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "prioritization",
+    "learning_function_rationale": "Objective systems train players to decide what counts toward success and what can be deferred.",
+    "learning_function_notes": "Useful for mission framing and plan alignment.",
     "skill_rationale": "Good bridge to target-oriented planning.",
     "skill_confidence": "high",
     "demands": {
@@ -1241,6 +1706,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 2,
+      "prioritization": 2,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "comparison; prioritization",
+    "learning_function_rationale": "Drafting and action selection are direct practice in choosing among limited options.",
+    "learning_function_notes": "Strong generic learning-function bridge.",
     "skill_rationale": "Strong default bridge because choice, scarcity, and consequence are built in.",
     "skill_confidence": "high",
     "demands": {
@@ -1280,6 +1760,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 2,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "prioritization",
+    "learning_function_rationale": "Allocating scarce actions across multiple needs trains structured prioritization.",
+    "learning_function_notes": "Strong for planning under constraint.",
     "skill_rationale": "Very strong bridge for planning skills.",
     "skill_confidence": "high",
     "demands": {
@@ -1319,6 +1814,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 1,
+      "systems_thinking": 2,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "systems thinking",
+    "learning_function_rationale": "Upgrading a personal system trains cumulative change and future-option reasoning.",
+    "learning_function_notes": "Useful for growth-loop understanding.",
     "skill_rationale": "Good bridge for growth-oriented planning.",
     "skill_confidence": "high",
     "demands": {
@@ -1358,6 +1868,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 1,
+      "systems_thinking": 3,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 2,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "systems thinking; consequence awareness",
+    "learning_function_rationale": "Engine building explicitly teaches linked cause-effect systems and efficiency loops.",
+    "learning_function_notes": "Top-tier systems-thinking mechanic.",
     "skill_rationale": "One of the strongest bridges to higher-order analytical thinking.",
     "skill_confidence": "high",
     "demands": {
@@ -1397,6 +1922,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 1,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 2,
+      "uncertainty_handling": 2,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "consequence awareness; uncertainty handling",
+    "learning_function_rationale": "Programming mechanics force players to think ahead and live with chain reactions.",
+    "learning_function_notes": "Strong for forecast-and-feedback learning.",
     "skill_rationale": "Good bridge for planning under uncertainty.",
     "skill_confidence": "high",
     "demands": {
@@ -1436,6 +1976,21 @@
       "respect_for_diversity": 0,
       "participation": 0
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 2,
+      "prioritization": 2,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "comparison; prioritization",
+    "learning_function_rationale": "Managing a hand means repeatedly comparing immediate versus future value.",
+    "learning_function_notes": "Strong for disciplined option management.",
     "skill_rationale": "Strong bridge because constraint and prioritization are continuous.",
     "skill_confidence": "high",
     "demands": {
@@ -1475,6 +2030,21 @@
       "respect_for_diversity": 0,
       "participation": 2
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 0,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 2
+    },
+    "top_learning_functions": "concrete understanding",
+    "learning_function_rationale": "Physical action can embody force, balance, precision, or instability in a direct way.",
+    "learning_function_notes": "Usually a concretization aid more than a main learning function.",
     "skill_rationale": "Useful for embodiment and engagement, not for broad learning claims alone.",
     "skill_confidence": "medium",
     "demands": {
@@ -1513,6 +2083,21 @@
       "respect_for_diversity": 0,
       "participation": 1
     },
+    "learning_functions": {
+      "classification": 1,
+      "comparison": 0,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 0,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 2
+    },
+    "top_learning_functions": "concrete understanding",
+    "learning_function_rationale": "External notation can make hidden logic visible and trackable.",
+    "learning_function_notes": "Support layer rather than main driver.",
     "skill_rationale": "Usually an interface aid more than a transferable-skill source.",
     "skill_confidence": "low-medium",
     "demands": {
@@ -1553,6 +2138,21 @@
       "respect_for_diversity": 0,
       "participation": 1
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 0,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 0,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 2
+    },
+    "top_learning_functions": "concrete understanding",
+    "learning_function_rationale": "Movement through space can make process, path, and progression easier to grasp.",
+    "learning_function_notes": "Useful for spatially embodying flow.",
     "skill_rationale": "Often supports concrete understanding rather than being the main learning outcome.",
     "skill_confidence": "medium",
     "demands": {
@@ -1593,6 +2193,21 @@
       "respect_for_diversity": 0,
       "participation": 1
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 0,
+      "systems_thinking": 1,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 2
+    },
+    "top_learning_functions": "concrete understanding",
+    "learning_function_rationale": "Space contest makes influence, boundaries, and pressure visible.",
+    "learning_function_notes": "Good when the concept depends on territory or distribution.",
     "skill_rationale": "Meaningful for strategy, but not automatically for social-emotional skill.",
     "skill_confidence": "medium",
     "demands": {
@@ -1633,6 +2248,21 @@
       "respect_for_diversity": 0,
       "participation": 1
     },
+    "learning_functions": {
+      "classification": 1,
+      "comparison": 0,
+      "prioritization": 0,
+      "systems_thinking": 1,
+      "overlap_recognition": 2,
+      "perspective_taking": 0,
+      "consequence_awareness": 0,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 3
+    },
+    "top_learning_functions": "overlap recognition; concrete understanding",
+    "learning_function_rationale": "Visible arrangement and fit are powerful for making abstract relations and overlap concrete.",
+    "learning_function_notes": "Especially strong for Venn-style and systems-mapping concepts.",
     "skill_rationale": "Strong bridge for concrete understanding even when not a direct learning outcome.",
     "skill_confidence": "high",
     "demands": {
@@ -1673,6 +2303,21 @@
       "respect_for_diversity": 0,
       "participation": 2
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 0,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 2
+    },
+    "top_learning_functions": "concrete understanding",
+    "learning_function_rationale": "Balancing mechanics embody fragility, accumulation, and tipping points.",
+    "learning_function_notes": "Best when the metaphor matters.",
     "skill_rationale": "Mostly an embodiment helper and engagement layer.",
     "skill_confidence": "medium",
     "demands": {
@@ -1712,6 +2357,21 @@
       "respect_for_diversity": 0,
       "participation": 1
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 2,
+      "prioritization": 1,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 1,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "comparison",
+    "learning_function_rationale": "Bidding makes value judgment explicit and often requires reading what others think something is worth.",
+    "learning_function_notes": "Good bridge for relative-value learning.",
     "skill_rationale": "Good bridge for valuation and strategic signaling.",
     "skill_confidence": "high",
     "demands": {
@@ -1750,6 +2410,21 @@
       "respect_for_diversity": 1,
       "participation": 2
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 1,
+      "perspective_taking": 3,
+      "consequence_awareness": 0,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 2
+    },
+    "top_learning_functions": "perspective taking; concrete understanding",
+    "learning_function_rationale": "Role and story can make abstract human situations easier to feel, imagine, and discuss.",
+    "learning_function_notes": "One of the best bridges to human-context understanding.",
     "skill_rationale": "One of the richer bridges to empathy when perspective-taking is authentic.",
     "skill_confidence": "medium-high",
     "demands": {
@@ -1789,6 +2464,21 @@
       "respect_for_diversity": 1,
       "participation": 3
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 1,
+      "consequence_awareness": 0,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 2,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "collaboration under constraint",
+    "learning_function_rationale": "Voting requires public choice, alignment, and navigation of group preference.",
+    "learning_function_notes": "Strong for participation and collective judgment.",
     "skill_rationale": "Very strong for participation; empathy depends on whether viewpoint engagement is real.",
     "skill_confidence": "high",
     "demands": {
@@ -1829,6 +2519,21 @@
       "respect_for_diversity": 0,
       "participation": 2
     },
+    "learning_functions": {
+      "classification": 1,
+      "comparison": 0,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 1,
+      "perspective_taking": 2,
+      "consequence_awareness": 0,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 1
+    },
+    "top_learning_functions": "perspective taking",
+    "learning_function_rationale": "Clueing works only when players think about how others will interpret the signal.",
+    "learning_function_notes": "Excellent for perspective-tuned explanation.",
     "skill_rationale": "Strong communication bridge; empathy rises only when real perspective-taking matters.",
     "skill_confidence": "high",
     "demands": {
@@ -1868,6 +2573,21 @@
       "respect_for_diversity": 0,
       "participation": 1
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 1,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 2,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "uncertainty handling",
+    "learning_function_rationale": "Bluffing and betting train response to ambiguity and reading others under strategic uncertainty.",
+    "learning_function_notes": "Not always educationally aligned, but analytically rich.",
     "skill_rationale": "Often social, but not necessarily empathetic.",
     "skill_confidence": "medium-high",
     "demands": {
@@ -1907,6 +2627,21 @@
       "respect_for_diversity": 0,
       "participation": 1
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 0,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 1,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 0,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "",
+    "learning_function_rationale": "Disruption makes action consequence visible, but usually in a blunt form.",
+    "learning_function_notes": "Weak learning-function source by itself.",
     "skill_rationale": "Do not infer empathy or healthy collaboration from direct attack alone.",
     "skill_confidence": "low",
     "demands": {
@@ -1945,6 +2680,21 @@
       "respect_for_diversity": 0,
       "participation": 2
     },
+    "learning_functions": {
+      "classification": 0,
+      "comparison": 1,
+      "prioritization": 0,
+      "systems_thinking": 0,
+      "overlap_recognition": 0,
+      "perspective_taking": 3,
+      "consequence_awareness": 1,
+      "uncertainty_handling": 0,
+      "collaboration_under_constraint": 2,
+      "concrete_understanding": 0
+    },
+    "top_learning_functions": "perspective taking; collaboration under constraint",
+    "learning_function_rationale": "Negotiation requires understanding what others want and finding acceptable terms.",
+    "learning_function_notes": "One of the strongest bridges to socially grounded learning functions.",
     "skill_rationale": "One of the strongest direct bridges to social-emotional transferable skills.",
     "skill_confidence": "high",
     "demands": {
