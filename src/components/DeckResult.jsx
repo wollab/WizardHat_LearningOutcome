@@ -19,11 +19,25 @@ function svgToDataUri(svgElement) {
 const CORE_CATEGORIES = ['Conflict', 'Order', 'Reward', 'Ending'];
 const SHOPEE_URL = 'https://shopee.co.th/wizards.of.learning/46454897531';
 
-function CardTile({ card, imgSrc, compact = false }) {
+function CardTile({ card, imgSrc, compact = false, exportMode = false }) {
   const accent = CATEGORY_COLORS[card.category] ?? '#414141';
+  const sizeClass = exportMode
+    ? compact
+      ? 'p-3 text-sm'
+      : 'p-4 text-base'
+    : compact
+      ? 'p-2 text-xs'
+      : 'p-3 text-sm';
+  const imageClass = exportMode
+    ? compact
+      ? 'h-24'
+      : 'h-32'
+    : compact
+      ? 'h-20'
+      : 'h-40';
   return (
     <div
-      className={`bg-white rounded-xl ${compact ? 'p-2 text-xs' : 'p-3 text-sm'} flex flex-col items-center border shadow-sm`}
+      className={`bg-white rounded-xl ${sizeClass} flex flex-col items-center border shadow-sm`}
       style={{ borderColor: accent, borderWidth: 3 }}
     >
       {imgSrc && (
@@ -31,14 +45,50 @@ function CardTile({ card, imgSrc, compact = false }) {
           src={imgSrc}
           alt={card.nameTh}
           crossOrigin="anonymous"
-          className={`w-full ${compact ? 'h-20' : 'h-40'} object-contain bg-white rounded mb-2`}
+          className={`w-full ${imageClass} object-contain bg-white rounded mb-2`}
         />
       )}
-      <span className="text-xs self-start font-semibold" style={{ color: accent }}>
+      <span className={`${exportMode ? 'text-sm' : 'text-xs'} self-start font-semibold`} style={{ color: accent }}>
         {card.category}
       </span>
-      <div className="font-medium self-start leading-5">{card.nameTh}</div>
-      <div className="text-xs text-wizard-ink/60 self-start">{card.mechanic_name}</div>
+      <div className={`font-medium self-start leading-5 ${exportMode ? 'text-base' : ''}`}>{card.nameTh}</div>
+      <div className={`${exportMode ? 'text-sm' : 'text-xs'} text-wizard-ink/60 self-start`}>{card.mechanic_name}</div>
+    </div>
+  );
+}
+
+function ExportBadge({ value, tone = 'teal' }) {
+  const palette = tone === 'gold'
+    ? { bg: '#FCE5A6', text: '#8F5E0A' }
+    : tone === 'rose'
+      ? { bg: '#F7D8D8', text: '#8E3F3F' }
+      : { bg: '#D7F0EF', text: '#227C7A' };
+  return (
+    <span
+      className="inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold"
+      style={{ backgroundColor: palette.bg, color: palette.text }}
+    >
+      {value}
+    </span>
+  );
+}
+
+function ExportListCard({ title, items, tone = 'teal' }) {
+  if (!items.length) return null;
+  return (
+    <div className="rounded-2xl bg-white border border-wizard-ink/10 p-5 space-y-3">
+      <h3 className="text-lg font-semibold text-wizard-plum">{title}</h3>
+      <div className="space-y-2">
+        {items.map((item) => (
+          <div key={item.key ?? item.label ?? item} className="flex items-start justify-between gap-3 rounded-xl bg-wizard-mist/35 px-3 py-3">
+            <div className="min-w-0">
+              <div className="text-base font-medium leading-6">{item.label ?? item}</div>
+              {item.summary ? <div className="text-sm text-wizard-ink/75 mt-1 leading-6">{item.summary}</div> : null}
+            </div>
+            {item.value != null ? <ExportBadge value={`${item.value.toFixed(1)} / 3`} tone={tone} /> : null}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -55,6 +105,13 @@ export default function DeckResult({ result, target, tasteCount, issue, onRerun,
   const gaps = SKILL_KEYS.filter((k) => (target[k] ?? 0) > skills[k].achieved);
   const achievedProfile = Object.fromEntries(SKILL_KEYS.map((k) => [k, skills[k].achieved]));
   const outcomeLens = buildOutcomeLens(selected, achievedProfile);
+  const topSkills = [...outcomeLens.allSkills]
+    .sort((a, b) => b.value - a.value || a.label.localeCompare(b.label, 'th'))
+    .slice(0, 6);
+  const topLearningFunctions = [...outcomeLens.allLearningFunctions]
+    .sort((a, b) => b.value - a.value || a.label.localeCompare(b.label, 'th'))
+    .slice(0, 5);
+  const topLabels = outcomeLens.wolReadingLabels.slice(0, 3);
 
   const caveats = selected.filter(
     (c) => ['low', 'medium', 'low-medium', 'medium-high'].includes(c.skill_confidence)
@@ -280,73 +337,107 @@ export default function DeckResult({ result, target, tasteCount, issue, onRerun,
         </div>
       </div>
 
-      <div className="fixed left-[-9999px] top-0 w-[1120px] pointer-events-none" aria-hidden="true">
-        <div ref={exportRef} className="rounded-2xl bg-wizard-mist p-8 space-y-5">
+      <div className="fixed left-[-9999px] top-0 w-[1560px] pointer-events-none" aria-hidden="true">
+        <div ref={exportRef} className="rounded-[28px] bg-wizard-mist p-10 space-y-6 text-wizard-ink" style={{ fontFamily: 'Kanit, sans-serif' }}>
           <div className="space-y-2">
-            <h2 className="text-2xl">ชุดการ์ดที่ใกล้เคียงเป้าหมายที่สุด</h2>
+            <div className="flex items-start justify-between gap-6">
+              <div>
+                <h2 className="text-3xl font-semibold">ชุดการ์ดที่ใกล้เคียงเป้าหมายที่สุด</h2>
+                <p className="text-base text-wizard-ink/70 mt-1">
+                  สรุปผลในมุม transferable skills, WoL learning functions และคำแนะนำใช้งานในภาพเดียว
+                </p>
+              </div>
+              <ExportBadge value={`${tasteCards.length} TASTE`} tone="gold" />
+            </div>
             {issueLabel ? (
-              <div className="rounded-xl bg-white/80 border border-wizard-ink/10 px-3 py-2 text-sm text-wizard-ink/80">
+              <div className="rounded-xl bg-white/80 border border-wizard-ink/10 px-4 py-3 text-base text-wizard-ink/80">
                 ประเด็นที่ตั้งไว้: <span className="font-medium text-wizard-plum">{issueLabel}</span>
               </div>
             ) : null}
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-wizard-plum mb-2">CORE (4 ใบ)</h3>
-            <div className="grid grid-cols-4 gap-2">
-              {coreCards.map((c) => (
-                <CardTile key={`export-core-${c.card_no}`} card={c} compact />
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-wizard-plum mb-2">TASTE ({tasteCards.length} ใบ)</h3>
-            <div className="grid grid-cols-4 gap-3">
-              {tasteCards.map((c) => (
-                <CardTile key={`export-taste-${c.card_no}`} card={c} />
-              ))}
-            </div>
-          </div>
-
-          <OutcomeSummaryPanel
-            title="ผลลัพธ์ Learning Outcome"
-            subtitle="อ่านผลลัพธ์ทั้งในมุม UNICEF transferable skills และ outcome layer ของ WoL ในกล่องเดียว"
-            radarSeries={radarSeries}
-            radarImageSrc={radarImgSrc}
-            radarCaption="เส้นทอง = เป้าหมาย · พื้นเขียว = ชุดการ์ดนี้ให้จริง"
-            allSkills={outcomeLens.allSkills}
-            allLearningFunctions={outcomeLens.allLearningFunctions}
-            wolReadingLabels={outcomeLens.wolReadingLabels}
-            confidence={outcomeLens.confidence}
-          />
-
-          <div className="rounded-2xl bg-white border border-wizard-ink/10 p-4 space-y-4">
-            <h3 className="text-sm font-semibold text-wizard-plum">คำแนะนำและข้อควรระวัง</h3>
-
-            {gaps.length > 0 ? (
-              <div>
-                <h4 className="text-sm font-semibold text-wizard-plum mb-1">ยังไม่ถึงเป้า</h4>
-                <p className="text-sm">{gaps.map((k) => SKILL_LABELS_TH[k]).join(', ')}</p>
+          <div className="grid grid-cols-[1.05fr_0.95fr_0.9fr] gap-5 items-start">
+            <div className="space-y-5">
+              <div className="rounded-2xl bg-white border border-wizard-ink/10 p-5 space-y-4">
+                <h3 className="text-lg font-semibold text-wizard-plum">โปรไฟล์ทักษะ</h3>
+                <img src={radarImgSrc} alt="ผลลัพธ์ Learning Outcome" className="w-full max-w-[420px] mx-auto" />
+                <p className="text-sm text-center text-wizard-ink/70">เส้นทอง = เป้าหมาย · พื้นเขียว = ชุดการ์ดนี้ให้จริง</p>
               </div>
-            ) : null}
 
-            <div>
-              <h4 className="text-sm font-semibold text-wizard-plum mb-1">จุดบอดที่ควรเฝ้าดู</h4>
-              <ul className="text-sm space-y-1 text-wizard-ink/80">
-                {outcomeLens.blindSpots.map((note) => (
-                  <li key={`export-blind-${note}`}>• {note}</li>
-                ))}
-              </ul>
+              <div className="rounded-2xl bg-white border border-wizard-ink/10 p-5 space-y-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-wizard-plum">CORE (4 ใบ)</h3>
+                  <ExportBadge value="ชุดแกนหลัก" tone="teal" />
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {coreCards.map((c) => (
+                    <CardTile key={`export-core-${c.card_no}`} card={c} compact exportMode />
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-2xl bg-white border border-wizard-ink/10 p-5 space-y-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-wizard-plum">TASTE ({tasteCards.length} ใบ)</h3>
+                  <ExportBadge value="ชุดเสริมรสชาติ" tone="gold" />
+                </div>
+                <div className="grid grid-cols-3 gap-3">
+                  {tasteCards.map((c) => (
+                    <CardTile key={`export-taste-${c.card_no}`} card={c} compact exportMode />
+                  ))}
+                </div>
+              </div>
             </div>
 
-            <div>
-              <h4 className="text-sm font-semibold text-wizard-plum mb-1">คำแนะนำต่อยอด</h4>
-              <ul className="text-sm space-y-1 text-wizard-ink/80">
-                {outcomeLens.recommendations.map((note) => (
-                  <li key={`export-reco-${note}`}>• {note}</li>
-                ))}
-              </ul>
+            <div className="space-y-5">
+              <ExportListCard title="Top Transferable Skills" items={topSkills} tone="teal" />
+              <ExportListCard title="Top WoL Learning Functions" items={topLearningFunctions} tone="gold" />
+            </div>
+
+            <div className="space-y-5">
+              <ExportListCard title="WoL Reading Labels" items={topLabels} tone="rose" />
+
+              <div className="rounded-2xl bg-white border border-wizard-ink/10 p-5 space-y-4">
+                <h3 className="text-lg font-semibold text-wizard-plum">คำแนะนำและข้อควรระวัง</h3>
+
+                {gaps.length > 0 ? (
+                  <div>
+                    <h4 className="text-base font-semibold text-wizard-plum mb-1">ยังไม่ถึงเป้า</h4>
+                    <p className="text-sm leading-6">{gaps.map((k) => SKILL_LABELS_TH[k]).join(', ')}</p>
+                  </div>
+                ) : null}
+
+                <div>
+                  <h4 className="text-base font-semibold text-wizard-plum mb-1">จุดบอดที่ควรเฝ้าดู</h4>
+                  <ul className="text-sm space-y-1 text-wizard-ink/80">
+                    {outcomeLens.blindSpots.slice(0, 4).map((note) => (
+                      <li key={`export-blind-${note}`}>• {note}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-base font-semibold text-wizard-plum mb-1">คำแนะนำต่อยอด</h4>
+                  <ul className="text-sm space-y-1 text-wizard-ink/80">
+                    {outcomeLens.recommendations.slice(0, 4).map((note) => (
+                      <li key={`export-reco-${note}`}>• {note}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                {caveats.length > 0 ? (
+                  <div>
+                    <h4 className="text-base font-semibold text-wizard-plum mb-1">การ์ดที่ควรอ่านอย่างระมัดระวัง</h4>
+                    <ul className="text-sm space-y-2 text-wizard-ink/80">
+                      {caveats.slice(0, 3).map((c) => (
+                        <li key={`export-caveat-${c.card_no}`} className="rounded-xl bg-wizard-mist/35 px-3 py-2">
+                          <span className="font-medium">{c.nameTh}</span> ({c.skill_confidence})
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+              </div>
             </div>
           </div>
 
