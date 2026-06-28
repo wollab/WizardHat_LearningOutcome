@@ -65,7 +65,7 @@ function ExportBadge({ value, tone = 'teal' }) {
       : { bg: '#D7F0EF', text: '#227C7A' };
   return (
     <span
-      className="inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold"
+      className="inline-flex min-w-[88px] items-center justify-center rounded-full px-3 py-1 text-sm font-semibold leading-none whitespace-nowrap shrink-0"
       style={{ backgroundColor: palette.bg, color: palette.text }}
     >
       {value}
@@ -81,9 +81,9 @@ function ExportListCard({ title, items, tone = 'teal' }) {
       <div className="space-y-2">
         {items.map((item) => (
           <div key={item.key ?? item.label ?? item} className="flex items-start justify-between gap-3 rounded-xl bg-wizard-mist/35 px-3 py-3">
-            <div className="min-w-0">
-              <div className="text-base font-medium leading-6">{item.label ?? item}</div>
-              {item.summary ? <div className="text-sm text-wizard-ink/75 mt-1 leading-6">{item.summary}</div> : null}
+            <div className="min-w-0 pr-1">
+              <div className="text-base font-medium leading-6 break-words">{item.label ?? item}</div>
+              {item.summary ? <div className="text-sm text-wizard-ink/75 mt-1 leading-5 break-words">{item.summary}</div> : null}
             </div>
             {item.value != null ? <ExportBadge value={`${item.value.toFixed(1)} / 3`} tone={tone} /> : null}
           </div>
@@ -107,10 +107,10 @@ export default function DeckResult({ result, target, tasteCount, issue, onRerun,
   const outcomeLens = buildOutcomeLens(selected, achievedProfile);
   const topSkills = [...outcomeLens.allSkills]
     .sort((a, b) => b.value - a.value || a.label.localeCompare(b.label, 'th'))
-    .slice(0, 6);
+    .slice(0, 5);
   const topLearningFunctions = [...outcomeLens.allLearningFunctions]
     .sort((a, b) => b.value - a.value || a.label.localeCompare(b.label, 'th'))
-    .slice(0, 5);
+    .slice(0, 4);
   const topLabels = outcomeLens.wolReadingLabels.slice(0, 3);
 
   const caveats = selected.filter(
@@ -337,13 +337,13 @@ export default function DeckResult({ result, target, tasteCount, issue, onRerun,
         </div>
       </div>
 
-      <div className="fixed left-[-9999px] top-0 w-[1560px] pointer-events-none" aria-hidden="true">
+      <div className="fixed left-[-9999px] top-0 w-[1700px] pointer-events-none" aria-hidden="true">
         <div ref={exportRef} className="rounded-[28px] bg-wizard-mist p-10 space-y-6 text-wizard-ink" style={{ fontFamily: 'Kanit, sans-serif' }}>
           <div className="space-y-2">
             <div className="flex items-start justify-between gap-6">
-              <div>
+              <div className="min-w-0 pr-4">
                 <h2 className="text-3xl font-semibold">ชุดการ์ดที่ใกล้เคียงเป้าหมายที่สุด</h2>
-                <p className="text-base text-wizard-ink/70 mt-1">
+                <p className="text-base text-wizard-ink/70 mt-1 leading-6">
                   สรุปผลในมุม transferable skills, WoL learning functions และคำแนะนำใช้งานในภาพเดียว
                 </p>
               </div>
@@ -356,87 +356,91 @@ export default function DeckResult({ result, target, tasteCount, issue, onRerun,
             ) : null}
           </div>
 
-          <div className="grid grid-cols-[1.05fr_0.95fr_0.9fr] gap-5 items-start">
+          <div className="grid grid-cols-[0.78fr_1.22fr] gap-6 items-start">
             <div className="space-y-5">
               <div className="rounded-2xl bg-white border border-wizard-ink/10 p-5 space-y-4">
                 <h3 className="text-lg font-semibold text-wizard-plum">โปรไฟล์ทักษะ</h3>
-                <img src={radarImgSrc} alt="ผลลัพธ์ Learning Outcome" className="w-full max-w-[420px] mx-auto" />
+                <img src={radarImgSrc} alt="ผลลัพธ์ Learning Outcome" className="w-full max-w-[360px] mx-auto" />
                 <p className="text-sm text-center text-wizard-ink/70">เส้นทอง = เป้าหมาย · พื้นเขียว = ชุดการ์ดนี้ให้จริง</p>
               </div>
 
-              <div className="rounded-2xl bg-white border border-wizard-ink/10 p-5 space-y-3">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold text-wizard-plum">CORE (4 ใบ)</h3>
-                  <ExportBadge value="ชุดแกนหลัก" tone="teal" />
+              <div className="grid grid-cols-2 gap-4">
+                <div className="rounded-2xl bg-white border border-wizard-ink/10 p-5 space-y-3">
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="text-lg font-semibold text-wizard-plum">CORE (4 ใบ)</h3>
+                    <ExportBadge value="ชุดแกนหลัก" tone="teal" />
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    {coreCards.map((c) => (
+                      <CardTile key={`export-core-${c.card_no}`} card={c} compact exportMode />
+                    ))}
+                  </div>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
-                  {coreCards.map((c) => (
-                    <CardTile key={`export-core-${c.card_no}`} card={c} compact exportMode />
-                  ))}
-                </div>
-              </div>
 
-              <div className="rounded-2xl bg-white border border-wizard-ink/10 p-5 space-y-3">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold text-wizard-plum">TASTE ({tasteCards.length} ใบ)</h3>
-                  <ExportBadge value="ชุดเสริมรสชาติ" tone="gold" />
-                </div>
-                <div className="grid grid-cols-3 gap-3">
-                  {tasteCards.map((c) => (
-                    <CardTile key={`export-taste-${c.card_no}`} card={c} compact exportMode />
-                  ))}
+                <div className="rounded-2xl bg-white border border-wizard-ink/10 p-5 space-y-3">
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="text-lg font-semibold text-wizard-plum">TASTE ({tasteCards.length} ใบ)</h3>
+                    <ExportBadge value="ชุดเสริมรสชาติ" tone="gold" />
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    {tasteCards.map((c) => (
+                      <CardTile key={`export-taste-${c.card_no}`} card={c} compact exportMode />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-5">
-              <ExportListCard title="Top Transferable Skills" items={topSkills} tone="teal" />
-              <ExportListCard title="Top WoL Learning Functions" items={topLearningFunctions} tone="gold" />
-            </div>
+            <div className="grid grid-cols-[0.92fr_1.08fr] gap-5 items-start">
+              <div className="space-y-5">
+                <ExportListCard title="Top Transferable Skills" items={topSkills} tone="teal" />
+                <ExportListCard title="Top WoL Learning Functions" items={topLearningFunctions} tone="gold" />
+              </div>
 
-            <div className="space-y-5">
-              <ExportListCard title="WoL Reading Labels" items={topLabels} tone="rose" />
+              <div className="space-y-5">
+                <ExportListCard title="WoL Reading Labels" items={topLabels} tone="rose" />
 
-              <div className="rounded-2xl bg-white border border-wizard-ink/10 p-5 space-y-4">
-                <h3 className="text-lg font-semibold text-wizard-plum">คำแนะนำและข้อควรระวัง</h3>
+                <div className="rounded-2xl bg-white border border-wizard-ink/10 p-5 space-y-4">
+                  <h3 className="text-lg font-semibold text-wizard-plum">คำแนะนำและข้อควรระวัง</h3>
 
-                {gaps.length > 0 ? (
                   <div>
                     <h4 className="text-base font-semibold text-wizard-plum mb-1">ยังไม่ถึงเป้า</h4>
-                    <p className="text-sm leading-6">{gaps.map((k) => SKILL_LABELS_TH[k]).join(', ')}</p>
+                    <p className="text-sm leading-6 break-words">
+                      {gaps.length > 0 ? gaps.map((k) => SKILL_LABELS_TH[k]).join(', ') : 'ไม่มีจุดที่ต่ำกว่าเป้าหมายหลัก'}
+                    </p>
                   </div>
-                ) : null}
 
-                <div>
-                  <h4 className="text-base font-semibold text-wizard-plum mb-1">จุดบอดที่ควรเฝ้าดู</h4>
-                  <ul className="text-sm space-y-1 text-wizard-ink/80">
-                    {outcomeLens.blindSpots.slice(0, 4).map((note) => (
-                      <li key={`export-blind-${note}`}>• {note}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-base font-semibold text-wizard-plum mb-1">คำแนะนำต่อยอด</h4>
-                  <ul className="text-sm space-y-1 text-wizard-ink/80">
-                    {outcomeLens.recommendations.slice(0, 4).map((note) => (
-                      <li key={`export-reco-${note}`}>• {note}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                {caveats.length > 0 ? (
                   <div>
-                    <h4 className="text-base font-semibold text-wizard-plum mb-1">การ์ดที่ควรอ่านอย่างระมัดระวัง</h4>
+                    <h4 className="text-base font-semibold text-wizard-plum mb-1">จุดบอดที่ควรเฝ้าดู</h4>
                     <ul className="text-sm space-y-2 text-wizard-ink/80">
-                      {caveats.slice(0, 3).map((c) => (
-                        <li key={`export-caveat-${c.card_no}`} className="rounded-xl bg-wizard-mist/35 px-3 py-2">
-                          <span className="font-medium">{c.nameTh}</span> ({c.skill_confidence})
-                        </li>
+                      {outcomeLens.blindSpots.slice(0, 3).map((note) => (
+                        <li key={`export-blind-${note}`} className="leading-5">• {note}</li>
                       ))}
                     </ul>
                   </div>
-                ) : null}
+
+                  <div>
+                    <h4 className="text-base font-semibold text-wizard-plum mb-1">คำแนะนำต่อยอด</h4>
+                    <ul className="text-sm space-y-2 text-wizard-ink/80">
+                      {outcomeLens.recommendations.slice(0, 3).map((note) => (
+                        <li key={`export-reco-${note}`} className="leading-5">• {note}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {caveats.length > 0 ? (
+                    <div>
+                      <h4 className="text-base font-semibold text-wizard-plum mb-1">การ์ดที่ควรอ่านอย่างระมัดระวัง</h4>
+                      <ul className="text-sm space-y-2 text-wizard-ink/80">
+                        {caveats.slice(0, 3).map((c) => (
+                          <li key={`export-caveat-${c.card_no}`} className="rounded-xl bg-wizard-mist/35 px-3 py-2 leading-5">
+                            <span className="font-medium">{c.nameTh}</span> ({c.skill_confidence})
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                </div>
               </div>
             </div>
           </div>
