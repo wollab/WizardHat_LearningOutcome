@@ -20,15 +20,17 @@ export default function App() {
   const [mode, setMode] = useState(MODE.TARGET);
   const [target, setTarget] = useState(null);
   const [tasteCount, setTasteCount] = useState(null);
+  const [issue, setIssue] = useState('');
   const [result, setResult] = useState(null);
 
   const [photoStep, setPhotoStep] = useState(PHOTO_STEP.CAPTURE);
   const [detectedCardNos, setDetectedCardNos] = useState([]);
   const [photoResult, setPhotoResult] = useState(null);
 
-  function handleTargetSubmit({ targets, tasteCount: count }) {
+  function handleTargetSubmit({ targets, tasteCount: count, issue: issueText }) {
     setTarget(targets);
     setTasteCount(count);
+    setIssue(issueText ?? '');
     setResult(runSearch(targets, count));
     setMode(MODE.RESULT);
   }
@@ -101,6 +103,7 @@ export default function App() {
           <TargetProfileForm
             onSubmit={handleTargetSubmit}
             initialTargets={target ?? undefined}
+            initialIssue={issue}
             initialDurationIdx={
               tasteCount != null ? DURATION_OPTIONS.findIndex((d) => d.tasteCount === tasteCount) : undefined
             }
@@ -111,6 +114,7 @@ export default function App() {
             result={result}
             target={target}
             tasteCount={tasteCount}
+            issue={issue}
             onRerun={handleRerun}
             onChangeDuration={handleChangeDuration}
             onRestart={handleRestart}

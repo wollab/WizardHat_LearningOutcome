@@ -18,10 +18,12 @@ function SectionTitle({ title, subtitle }) {
 }
 
 function ScoreBadge({ value, color }) {
+  const isZero = value <= 0;
+  const baseColor = isZero ? '#9ca3af' : color;
   return (
     <span
       className="inline-flex items-center justify-center min-w-9 rounded-full px-2 py-1 text-xs font-semibold"
-      style={{ backgroundColor: `${color}22`, color }}
+      style={{ backgroundColor: `${baseColor}22`, color: baseColor }}
     >
       {value.toFixed(1)} / 3
     </span>
@@ -45,6 +47,9 @@ export default function OutcomeSummaryPanel({
       .map((skillKey) => allSkills.find((item) => item.key === skillKey))
       .filter(Boolean),
   }));
+  const sortedLearningFunctions = [...allLearningFunctions].sort((a, b) => b.value - a.value || a.label.localeCompare(b.label, 'th'));
+  const visibleLearningFunctions = sortedLearningFunctions.slice(0, 5);
+  const hiddenLearningFunctions = sortedLearningFunctions.slice(5);
 
   return (
     <section className="rounded-2xl bg-white border border-wizard-ink/10 p-5 space-y-6">
@@ -102,16 +107,43 @@ export default function OutcomeSummaryPanel({
       <div className="grid xl:grid-cols-[1.15fr_0.85fr] gap-6">
         <div className="space-y-4">
           <SectionTitle title="WoL Learning Functions" subtitle="อีกเลนส์หนึ่งของ WoL ว่าเกมกำลังฝึกกระบวนการเรียนรู้แบบไหน" />
-          <div className="grid sm:grid-cols-2 gap-3">
-            {allLearningFunctions.map((item) => (
-              <div key={item.key} className="rounded-2xl border border-wizard-ink/10 bg-white/70 px-3 py-3 flex items-center justify-between gap-3">
+          <div className="space-y-3">
+            {visibleLearningFunctions.map((item, index) => (
+              <div
+                key={item.key}
+                className={`rounded-2xl border px-3 py-3 flex items-center justify-between gap-3 ${
+                  index < 3 ? 'border-wizard-teal/35 bg-wizard-mist/35 shadow-sm' : 'border-wizard-ink/10 bg-white/70'
+                }`}
+              >
                 <div className="flex items-center gap-2 min-w-0">
-                  <span className="text-sm truncate">{item.label}</span>
+                  <span className={`text-xs font-semibold shrink-0 ${index < 3 ? 'text-wizard-teal' : 'text-wizard-ink/45'}`}>
+                    #{index + 1}
+                  </span>
+                  <span className={`text-sm truncate ${item.value <= 0 ? 'text-wizard-ink/45' : ''}`}>{item.label}</span>
                   <InfoTooltip text={item.tooltip} />
                 </div>
                 <ScoreBadge value={item.value} color="#2f9b99" />
               </div>
             ))}
+            {hiddenLearningFunctions.length > 0 ? (
+              <details className="rounded-2xl border border-wizard-ink/10 bg-white/70 px-3 py-3">
+                <summary className="cursor-pointer text-sm font-medium text-wizard-plum">
+                  ดู function เพิ่มเติม ({hiddenLearningFunctions.length})
+                </summary>
+                <div className="space-y-2 mt-3">
+                  {hiddenLearningFunctions.map((item, index) => (
+                    <div key={item.key} className="rounded-xl border border-wizard-ink/8 bg-white px-3 py-2 flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span className="text-xs font-semibold shrink-0 text-wizard-ink/45">#{index + 6}</span>
+                        <span className={`text-sm truncate ${item.value <= 0 ? 'text-wizard-ink/45' : ''}`}>{item.label}</span>
+                        <InfoTooltip text={item.tooltip} />
+                      </div>
+                      <ScoreBadge value={item.value} color="#2f9b99" />
+                    </div>
+                  ))}
+                </div>
+              </details>
+            ) : null}
           </div>
         </div>
 

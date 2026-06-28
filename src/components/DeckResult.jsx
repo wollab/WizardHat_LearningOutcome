@@ -19,11 +19,11 @@ function svgToDataUri(svgElement) {
 const CORE_CATEGORIES = ['Conflict', 'Order', 'Reward', 'Ending'];
 const SHOPEE_URL = 'https://shopee.co.th/wizards.of.learning/46454897531';
 
-function CardTile({ card, imgSrc }) {
+function CardTile({ card, imgSrc, compact = false }) {
   const accent = CATEGORY_COLORS[card.category] ?? '#414141';
   return (
     <div
-      className="bg-white rounded-xl p-3 text-sm flex flex-col items-center border shadow-sm"
+      className={`bg-white rounded-xl ${compact ? 'p-2 text-xs' : 'p-3 text-sm'} flex flex-col items-center border shadow-sm`}
       style={{ borderColor: accent, borderWidth: 3 }}
     >
       {imgSrc && (
@@ -31,22 +31,23 @@ function CardTile({ card, imgSrc }) {
           src={imgSrc}
           alt={card.nameTh}
           crossOrigin="anonymous"
-          className="w-full h-40 object-contain bg-white rounded mb-2"
+          className={`w-full ${compact ? 'h-20' : 'h-40'} object-contain bg-white rounded mb-2`}
         />
       )}
       <span className="text-xs self-start font-semibold" style={{ color: accent }}>
         {card.category}
       </span>
-      <div className="font-medium self-start">{card.nameTh}</div>
+      <div className="font-medium self-start leading-5">{card.nameTh}</div>
       <div className="text-xs text-wizard-ink/60 self-start">{card.mechanic_name}</div>
     </div>
   );
 }
 
-export default function DeckResult({ result, target, tasteCount, onRerun, onChangeDuration, onRestart }) {
+export default function DeckResult({ result, target, tasteCount, issue, onRerun, onChangeDuration, onRestart }) {
   const { selected, skills } = result;
-  const cardRef = useRef(null);
+  const exportRef = useRef(null);
   const [exporting, setExporting] = useState(false);
+  const issueLabel = issue?.trim();
 
   const coreCards = selected.filter((c) => CORE_CATEGORIES.includes(c.category));
   const tasteCards = selected.filter((c) => !CORE_CATEGORIES.includes(c.category));
@@ -108,7 +109,7 @@ export default function DeckResult({ result, target, tasteCount, onRerun, onChan
   }
 
   async function exportPng() {
-    if (!cardRef.current || exporting) return;
+    if (!exportRef.current || exporting) return;
     setExporting(true);
     setExportError(false);
     try {
@@ -120,7 +121,18 @@ export default function DeckResult({ result, target, tasteCount, onRerun, onChan
       // A hard timeout guards against any other environment where the
       // image-decode step inside html-to-image never resolves.
       const dataUrl = await Promise.race([
-        toPng(cardRef.current, { pixelRatio: 2, backgroundColor: '#d9f1f0', cacheBust: true, skipFonts: true }),
+        toPng(exportRef.current, {
+          pixelRatio: 2,
+          backgroundColor: '#d9f1f0',
+          cacheBust: true,
+          skipFonts: true,
+          filter: (node) => {
+            if (node?.dataset?.exportIgnore === 'true') return false;
+            if (node.tagName === 'DETAILS') return false;
+            if (node instanceof HTMLImageElement && /^https?:/i.test(node.src)) return false;
+            return true;
+          },
+        }),
         new Promise((_, reject) => setTimeout(() => reject(new Error('export_timeout')), 8000)),
       ]);
       const a = document.createElement('a');
@@ -137,12 +149,16 @@ export default function DeckResult({ result, target, tasteCount, onRerun, onChan
   return (
     <div className="max-w-3xl mx-auto p-6">
       <div
-        ref={cardRef}
         className={`rounded-2xl bg-wizard-mist p-6 space-y-5 transition-opacity duration-300 ${
           isShaking ? 'deck-shake opacity-50' : 'opacity-100'
         }`}
       >
         <h2 className="text-xl">ชุดการ์ดที่ใกล้เคียงเป้าหมายที่สุด</h2>
+        {issueLabel ? (
+          <div className="rounded-xl bg-white/75 border border-wizard-ink/10 px-3 py-2 text-sm text-wizard-ink/80">
+            ประเด็นที่ตั้งไว้: <span className="font-medium text-wizard-plum">{issueLabel}</span>
+          </div>
+        ) : null}
 
         <div>
           <div className="flex items-center justify-between mb-2">
@@ -163,9 +179,9 @@ export default function DeckResult({ result, target, tasteCount, onRerun, onChan
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="grid grid-cols-4 gap-2">
             {coreCards.map((c) => (
-              <CardTile key={c.card_no} card={c} imgSrc={cardImages[c.card_no]} />
+              <CardTile key={c.card_no} card={c} imgSrc={cardImages[c.card_no]} compact />
             ))}
           </div>
         </div>
@@ -240,7 +256,7 @@ export default function DeckResult({ result, target, tasteCount, onRerun, onChan
         </div>
 
         {/* Promo footer — included in the exported PNG, same pattern as Tarot of Learning's shop-cta */}
-        <div className="rounded-xl bg-white/70 p-3 flex items-center gap-3">
+        <div className="rounded-xl bg-white/70 p-3 flex items-center gap-3" data-export-ignore="true">
           <img
             src={`${import.meta.env.BASE_URL}wizardhat-box.png`}
             alt="Wizard Hat — Starter Pack"
@@ -260,6 +276,82 @@ export default function DeckResult({ result, target, tasteCount, onRerun, onChan
             >
               🛒 สั่งซื้อ Wizard Hat — Wizards of Learning
             </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="fixed left-[-9999px] top-0 w-[1120px] pointer-events-none" aria-hidden="true">
+        <div ref={exportRef} className="rounded-2xl bg-wizard-mist p-8 space-y-5">
+          <div className="space-y-2">
+            <h2 className="text-2xl">ชุดการ์ดที่ใกล้เคียงเป้าหมายที่สุด</h2>
+            {issueLabel ? (
+              <div className="rounded-xl bg-white/80 border border-wizard-ink/10 px-3 py-2 text-sm text-wizard-ink/80">
+                ประเด็นที่ตั้งไว้: <span className="font-medium text-wizard-plum">{issueLabel}</span>
+              </div>
+            ) : null}
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold text-wizard-plum mb-2">CORE (4 ใบ)</h3>
+            <div className="grid grid-cols-4 gap-2">
+              {coreCards.map((c) => (
+                <CardTile key={`export-core-${c.card_no}`} card={c} compact />
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold text-wizard-plum mb-2">TASTE ({tasteCards.length} ใบ)</h3>
+            <div className="grid grid-cols-4 gap-3">
+              {tasteCards.map((c) => (
+                <CardTile key={`export-taste-${c.card_no}`} card={c} />
+              ))}
+            </div>
+          </div>
+
+          <OutcomeSummaryPanel
+            title="ผลลัพธ์ Learning Outcome"
+            subtitle="อ่านผลลัพธ์ทั้งในมุม UNICEF transferable skills และ outcome layer ของ WoL ในกล่องเดียว"
+            radarSeries={radarSeries}
+            radarImageSrc={radarImgSrc}
+            radarCaption="เส้นทอง = เป้าหมาย · พื้นเขียว = ชุดการ์ดนี้ให้จริง"
+            allSkills={outcomeLens.allSkills}
+            allLearningFunctions={outcomeLens.allLearningFunctions}
+            wolReadingLabels={outcomeLens.wolReadingLabels}
+            confidence={outcomeLens.confidence}
+          />
+
+          <div className="rounded-2xl bg-white border border-wizard-ink/10 p-4 space-y-4">
+            <h3 className="text-sm font-semibold text-wizard-plum">คำแนะนำและข้อควรระวัง</h3>
+
+            {gaps.length > 0 ? (
+              <div>
+                <h4 className="text-sm font-semibold text-wizard-plum mb-1">ยังไม่ถึงเป้า</h4>
+                <p className="text-sm">{gaps.map((k) => SKILL_LABELS_TH[k]).join(', ')}</p>
+              </div>
+            ) : null}
+
+            <div>
+              <h4 className="text-sm font-semibold text-wizard-plum mb-1">จุดบอดที่ควรเฝ้าดู</h4>
+              <ul className="text-sm space-y-1 text-wizard-ink/80">
+                {outcomeLens.blindSpots.map((note) => (
+                  <li key={`export-blind-${note}`}>• {note}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-sm font-semibold text-wizard-plum mb-1">คำแนะนำต่อยอด</h4>
+              <ul className="text-sm space-y-1 text-wizard-ink/80">
+                {outcomeLens.recommendations.map((note) => (
+                  <li key={`export-reco-${note}`}>• {note}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-wizard-ink/10 text-[10px] text-wizard-ink/50 text-center">
+            Wizard Hat Learning Outcome · Wizards of Learning
           </div>
         </div>
       </div>

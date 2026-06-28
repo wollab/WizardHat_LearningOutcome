@@ -13,13 +13,14 @@ import InfoTooltip from './InfoTooltip.jsx';
 
 const DEFAULT_DURATION_IDX = 1; // 30–40 นาที / 3 ใบ TASTE
 
-export default function TargetProfileForm({ onSubmit, initialTargets, initialDurationIdx }) {
+export default function TargetProfileForm({ onSubmit, initialTargets, initialDurationIdx, initialIssue = '' }) {
   const [durationIdx, setDurationIdx] = useState(initialDurationIdx ?? DEFAULT_DURATION_IDX);
   const duration = DURATION_OPTIONS[durationIdx];
 
   const [targets, setTargets] = useState(() =>
     initialTargets ?? Object.fromEntries(SKILL_KEYS.map((k) => [k, 0]))
   );
+  const [issue, setIssue] = useState(initialIssue);
 
   const pointsUsed = Object.values(targets).reduce((sum, v) => sum + v, 0);
 
@@ -56,47 +57,53 @@ export default function TargetProfileForm({ onSubmit, initialTargets, initialDur
       </p>
 
       <div className="rounded-2xl bg-white border border-wizard-ink/10 p-4 mb-5">
-        <h3 className="text-sm font-semibold text-wizard-plum mb-2">ความหมายคะแนน 0–3 แบบสั้น ๆ</h3>
-        <div className="grid sm:grid-cols-2 gap-2 text-sm text-wizard-ink/75">
-          <div><span className="font-medium">0</span> = ไม่ได้เน้นหรือแทบไม่เกิด</div>
-          <div><span className="font-medium">1</span> = แตะเล็กน้อย ใช้ได้แต่ยังไม่ใช่แกนหลัก</div>
-          <div><span className="font-medium">2</span> = เกิดค่อนข้างชัด มีผลต่อการเล่น</div>
-          <div><span className="font-medium">3</span> = เป็นหัวใจของประสบการณ์และส่งผลสูงต่อ outcome</div>
+        <div className="flex items-center justify-between gap-3 mb-3">
+          <h3 className="text-sm font-semibold text-wizard-plum">กราฟเป้าหมาย</h3>
+          <div className="text-xs text-wizard-ink/55">
+            แต้มที่ใช้ <span className="font-semibold text-wizard-plum">{pointsUsed}</span> / {duration.pointBudget}
+          </div>
         </div>
-      </div>
-
-      <div className="mb-5">
-        <p className="text-sm font-medium mb-2">อยากให้เกมเล่นนานแค่ไหน?</p>
-        <div className="flex gap-2">
-          {DURATION_OPTIONS.map((d, idx) => (
-            <button
-              key={d.id}
-              onClick={() => selectDuration(idx)}
-              className={`flex-1 py-2 rounded-lg text-sm ${
-                idx === durationIdx ? 'bg-wizard-teal text-white' : 'bg-white/70 text-wizard-ink/60'
-              }`}
-            >
-              {d.label}
-              <div className="text-[10px] opacity-80">{d.tasteCount} TASTE</div>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="grid sm:grid-cols-2 gap-6 items-center mb-4">
-        <div className="rounded-2xl bg-white border border-wizard-ink/10 p-4">
+        <div className="max-w-md mx-auto">
           <RadarChart
             series={[{ values: targets, color: '#74c0fc', fillOpacity: 0.4 }]}
             axisColors={SKILL_COLORS}
           />
-          <p className="text-[11px] text-center text-wizard-ink/55 mt-3">
-            <a href={UNICEF_REFERENCE.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
-              {UNICEF_REFERENCE.sourceText}
-            </a>{' '}
-            · {UNICEF_REFERENCE.shortLabel}
-          </p>
         </div>
+        <p className="text-[11px] text-center text-wizard-ink/55 mt-3">
+          <a href={UNICEF_REFERENCE.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+            {UNICEF_REFERENCE.sourceText}
+          </a>{' '}
+          · {UNICEF_REFERENCE.shortLabel}
+        </p>
+      </div>
 
+      <div className="rounded-2xl bg-white border border-wizard-ink/10 p-4 mb-5 space-y-3">
+        <div>
+          <h3 className="text-sm font-semibold text-wizard-plum mb-1">เลือกระยะเวลา</h3>
+          <p className="text-xs text-wizard-ink/60">ยิ่งเวลาเล่นยาว ระบบยิ่งอนุญาตให้ตั้งเป้าทักษะรวมได้มากขึ้น</p>
+        </div>
+        <div className="grid grid-cols-3 gap-2">
+          {DURATION_OPTIONS.map((d, idx) => (
+            <button
+              key={d.id}
+              onClick={() => selectDuration(idx)}
+              className={`rounded-lg px-2 py-3 text-sm ${
+                idx === durationIdx ? 'bg-wizard-teal text-white' : 'bg-wizard-mist/45 text-wizard-ink/70'
+              }`}
+            >
+              <div>{d.label}</div>
+              <div className="text-[10px] opacity-80 mt-1">{d.tasteCount} TASTE</div>
+            </button>
+          ))}
+        </div>
+        <div className="rounded-xl bg-wizard-mist/45 border border-wizard-teal/15 px-3 py-2 flex items-center justify-between gap-3 text-sm">
+          <span className="text-wizard-ink/70">limit คะแนนที่เลือกได้</span>
+          <span className="font-semibold text-wizard-plum">{duration.pointBudget} คะแนน</span>
+        </div>
+      </div>
+
+      <div className="space-y-3 mb-5">
+        <h3 className="text-sm font-semibold text-wizard-plum">หัวข้อการเลือกต่าง ๆ</h3>
         <div className="space-y-3">
           {groupedSkills.map((group) => (
             <div key={group.key} className="rounded-2xl bg-white border border-wizard-ink/10 p-3 space-y-2">
@@ -143,17 +150,37 @@ export default function TargetProfileForm({ onSubmit, initialTargets, initialDur
         </div>
       </div>
 
-      <p className="text-sm text-center text-wizard-ink/60 mb-4">
-        แต้มที่ใช้: <span className="font-semibold text-wizard-plum">{pointsUsed}</span> / {duration.pointBudget}
-      </p>
+      <div className="rounded-2xl bg-white border border-wizard-ink/10 p-4 mb-5">
+        <label htmlFor="issue-input" className="block text-sm font-semibold text-wizard-plum mb-2">
+          ประเด็นหรือหัวข้อที่อยากใช้กับเกม (ไม่บังคับ)
+        </label>
+        <textarea
+          id="issue-input"
+          value={issue}
+          onChange={(event) => setIssue(event.target.value)}
+          rows={3}
+          placeholder="เช่น การเงินในชีวิตจริง, สิทธิแรงงาน, ความหลากหลายทางเพศ, civic participation"
+          className="w-full rounded-xl border border-wizard-ink/10 bg-white px-3 py-3 text-sm text-wizard-ink placeholder:text-wizard-ink/35 focus:outline-none focus:ring-2 focus:ring-wizard-teal/35"
+        />
+      </div>
 
       <button
-        onClick={() => onSubmit({ targets, tasteCount: duration.tasteCount })}
+        onClick={() => onSubmit({ targets, tasteCount: duration.tasteCount, issue: issue.trim() })}
         disabled={!hasAnyTarget}
         className="w-full py-3 rounded-lg bg-wizard-gold text-wizard-ink font-semibold disabled:opacity-50"
       >
         ดูซิว่าได้อะไร
       </button>
+
+      <div className="rounded-2xl bg-white border border-wizard-ink/10 p-4 mt-5">
+        <h3 className="text-sm font-semibold text-wizard-plum mb-2">หมายเหตุ: ความหมายคะแนน 0–3</h3>
+        <div className="grid sm:grid-cols-2 gap-2 text-sm text-wizard-ink/75">
+          <div><span className="font-medium">0</span> = ไม่ได้เน้นหรือแทบไม่เกิด</div>
+          <div><span className="font-medium">1</span> = แตะเล็กน้อย ใช้ได้แต่ยังไม่ใช่แกนหลัก</div>
+          <div><span className="font-medium">2</span> = เกิดค่อนข้างชัด มีผลต่อการเล่น</div>
+          <div><span className="font-medium">3</span> = เป็นหัวใจของประสบการณ์และส่งผลสูงต่อ outcome</div>
+        </div>
+      </div>
     </div>
   );
 }
