@@ -194,23 +194,15 @@ export default function CaseStudyGallery() {
           confidence={activeStudy.result.confidence}
         />
 
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-2 gap-6">
           <SectionCard title="พฤติกรรมผู้เล่นที่น่าจะเกิดขึ้น">
             <ul className="space-y-2 text-sm text-wizard-ink/80">
               {activeStudy.result.actionSummaries.slice(0, 5).map((item) => (
                 <li key={`${activeStudy.id}-${item.nameTh}`} className="rounded-xl bg-white/70 p-3">
                   <div className="font-medium">{item.nameTh}</div>
                   <div className="text-xs text-wizard-ink/55 mb-1">{item.mechanic}</div>
-                  <div>{item.action}</div>
+                  <div className="leading-6">{item.action}</div>
                 </li>
-              ))}
-            </ul>
-          </SectionCard>
-
-          <SectionCard title="ภาพที่ยังควรเพิ่ม">
-            <ul className="list-disc pl-5 space-y-2 text-sm text-wizard-ink/80">
-              {activeStudy.missingAssets.map((note) => (
-                <li key={`${activeStudy.id}-${note}`}>{note}</li>
               ))}
             </ul>
           </SectionCard>

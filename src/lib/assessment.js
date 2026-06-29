@@ -253,11 +253,67 @@ function buildWolReadingLabels(learningProfile, dimensionProfile, confidence) {
 }
 
 function collectActionSummaries(selectedCards) {
+  const behaviorTranslations = {
+    'monitoring rank, racing for advantage, blocking, optimizing against rivals':
+      'จับตาว่าใครนำอยู่ เร่งทำแต้มให้ทันหรือแซง และเลือกจังหวะตัดทางคู่แข่ง',
+    'timing choices, anticipating known turn windows':
+      'กะจังหวะว่าเมื่อไรควรลงมือ และวางแผนล่วงหน้าจากลำดับเทิร์นที่รู้อยู่แล้ว',
+    'evaluating worth, optimizing sequences, planning for payoff':
+      'ชั่งน้ำหนักว่าทางเลือกไหนคุ้มที่สุด เรียงลำดับการกระทำ และวางแผนเพื่อผลตอบแทนปลายทาง',
+    'pacing resources, preserving late-game options':
+      'บริหารทรัพยากรไม่ให้หมดเร็วเกินไป และเผื่อทางเลือกไว้สำหรับช่วงท้ายเกม',
+    'pricing, comparing deals, timing purchases, exploiting market conditions':
+      'เทียบราคา เปรียบข้อเสนอ เลือกจังหวะซื้อขาย และใช้สภาพตลาดให้เป็นประโยชน์',
+    'borrowing, surviving scarcity, accepting penalties, comparing now versus later':
+      'ตัดสินใจว่าจะกู้ไหมเพื่อแก้ปัญหาเฉพาะหน้า ยอมรับต้นทุนที่ตามมา และเทียบผลได้ตอนนี้กับผลเสียในอนาคต',
+    'investing now for later gain, protecting assets, choosing growth over immediate payoff':
+      'ยอมลงทรัพยากรตอนนี้เพื่อผลระยะยาว ปกป้องสิ่งที่มี และเลือกระหว่างโตช้ากับได้ผลทันที',
+    'pursuing sets, abandoning incomplete plans, valuing synergy':
+      'ไล่เก็บองค์ประกอบที่เข้าชุดกัน ประเมินว่าจะไปต่อหรือพอแค่นี้ และมองหาความคุ้มจากการเสริมกัน',
+    'prioritizing goals, monitoring progress, aligning actions to targets':
+      'จัดลำดับเป้าหมาย ติดตามว่าตอนนี้ไปถึงไหนแล้ว และทำทุกทางเลือกให้สอดคล้องกับเป้าหมายหลัก',
+    'prioritizing options, cutting others off, choosing now versus later':
+      'เลือกก่อนว่าอะไรสำคัญ ตัดสินใจว่าจะรีบคว้าตอนนี้หรือรอจังหวะที่ดีกว่า',
+    'forming hypotheses, eliminating possibilities, testing clues':
+      'ตั้งสมมติฐาน ค่อย ๆ ตัดความเป็นไปได้ที่ไม่น่าใช่ออก และทดลองอ่านเบาะแสที่มี',
+    'adjusting to shocks, revising priorities, responding to external change':
+      'ปรับตัวเมื่อเจอเหตุการณ์ไม่คาดคิด เปลี่ยนลำดับความสำคัญ และตอบสนองต่อสิ่งที่เปลี่ยนไปภายนอก',
+    'making offers, countering, listening, trading concessions':
+      'ยื่นข้อเสนอ โต้กลับ รับฟังอีกฝ่าย และยอมบางอย่างเพื่อให้ตกลงกันได้',
+    'bluffing, reading confidence, wagering under uncertainty':
+      'อ่านใจอีกฝ่าย ดูว่าใครมั่นใจจริงหรือหลอก และตัดสินใจเสี่ยงภายใต้ข้อมูลไม่ครบ',
+    'speaking in role, imagining perspectives, constructing shared meaning':
+      'พูดจากมุมของบทบาทที่รับอยู่ ลองคิดแทนคนอื่น และช่วยกันสร้างความเข้าใจร่วม',
+    'arguing, choosing, aligning, signaling support':
+      'แลกเหตุผล ตัดสินใจร่วมกัน และแสดงออกว่าเราหนุนทางเลือกใด',
+  };
+
+  const mechanicTranslations = {
+    Competitive: 'แข่งขันกันเอง',
+    'Fixed Turn Order': 'เล่นทีละคนตามลำดับ',
+    'Victory Points': 'เก็บแต้มเพื่อชนะ',
+    'Fixed Number of Rounds': 'มีรอบจบแน่นอน',
+    'Market, Exchanging, Trading': 'ตลาด ซื้อขาย แลกเปลี่ยน',
+    Loans: 'การกู้ยืม',
+    Investment: 'การลงทุน',
+    'Set Collection': 'สะสมเป็นชุด',
+    'Open Drafting': 'เลือกของจากตัวเลือกที่ทุกคนเห็น',
+    Deduction: 'อนุมานจากข้อมูล',
+    Events: 'เหตุการณ์',
+    Negotiation: 'การเจรจา',
+    Voting: 'การลงคะแนน',
+    'Role Playing': 'สวมบทบาท',
+  };
+
   return selectedCards
     .map((card) => ({
       nameTh: card.nameTh,
-      mechanic: card.mechanic_name,
-      action: card.demands?.observable_behaviors || card.demands?.cognitive || '',
+      mechanic: mechanicTranslations[card.mechanic_name] || card.mechanic_name,
+      action:
+        behaviorTranslations[card.demands?.observable_behaviors] ||
+        card.demands?.observable_behaviors ||
+        card.demands?.cognitive ||
+        '',
     }))
     .filter((item) => item.action);
 }
