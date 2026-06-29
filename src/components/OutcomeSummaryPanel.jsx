@@ -25,12 +25,13 @@ function ScoreBadge({ value, color }) {
   return (
     <span
       className={`inline-flex min-w-[84px] items-center justify-center gap-1 rounded-full px-3 py-1.5 font-semibold whitespace-nowrap shrink-0 ${
-        isStrong ? 'shadow-sm border' : 'border border-transparent'
+        isStrong ? 'shadow-sm border-2' : 'border border-transparent'
       }`}
       style={{
         backgroundColor: isStrong ? `${baseColor}2E` : isMedium ? `${baseColor}26` : `${baseColor}18`,
         color: baseColor,
-        borderColor: isStrong ? `${baseColor}55` : 'transparent',
+        borderColor: isStrong ? `${baseColor}CC` : 'transparent',
+        boxShadow: isStrong ? `0 0 0 2px ${baseColor}22` : 'none',
       }}
     >
       <span className={isStrong ? 'text-base' : 'text-sm'}>{value.toFixed(1)}</span>
