@@ -63,10 +63,13 @@ export default function TargetProfileForm({ onSubmit, initialTargets, initialDur
             แต้มที่ใช้ <span className="font-semibold text-wizard-plum">{pointsUsed}</span> / {duration.pointBudget}
           </div>
         </div>
-        <div className="max-w-md mx-auto">
+        <div className="max-w-xl mx-auto">
           <RadarChart
             series={[{ values: targets, color: '#74c0fc', fillOpacity: 0.4 }]}
             axisColors={SKILL_COLORS}
+            className="w-full max-w-xl mx-auto"
+            labelFontSize={11.5}
+            multilineLabels
           />
         </div>
         <p className="text-[11px] text-center text-wizard-ink/55 mt-3">
