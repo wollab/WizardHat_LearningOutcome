@@ -20,12 +20,21 @@ function SectionTitle({ title, subtitle }) {
 function ScoreBadge({ value, color }) {
   const isZero = value <= 0;
   const baseColor = isZero ? '#9ca3af' : color;
+  const isStrong = value >= 2.5;
+  const isMedium = value >= 1.5 && value < 2.5;
   return (
     <span
-      className="inline-flex items-center justify-center min-w-9 rounded-full px-2 py-1 text-xs font-semibold"
-      style={{ backgroundColor: `${baseColor}22`, color: baseColor }}
+      className={`inline-flex min-w-[84px] items-center justify-center gap-1 rounded-full px-3 py-1.5 font-semibold whitespace-nowrap shrink-0 ${
+        isStrong ? 'shadow-sm border' : 'border border-transparent'
+      }`}
+      style={{
+        backgroundColor: isStrong ? `${baseColor}2E` : isMedium ? `${baseColor}26` : `${baseColor}18`,
+        color: baseColor,
+        borderColor: isStrong ? `${baseColor}55` : 'transparent',
+      }}
     >
-      {value.toFixed(1)} / 3
+      <span className={isStrong ? 'text-base' : 'text-sm'}>{value.toFixed(1)}</span>
+      <span className={`leading-none ${isStrong ? 'text-[11px]' : 'text-[10px]'} opacity-80`}>/3</span>
     </span>
   );
 }
@@ -58,9 +67,15 @@ export default function OutcomeSummaryPanel({
       <div className="grid xl:grid-cols-[0.95fr_1.05fr] gap-6 items-start">
         <div className="rounded-2xl bg-wizard-mist/40 border border-wizard-ink/8 p-4 space-y-3">
           {radarImageSrc ? (
-            <img src={radarImageSrc} alt={title} className="w-full max-w-sm mx-auto" />
+            <img src={radarImageSrc} alt={title} className="w-full max-w-md mx-auto" />
           ) : (
-            <RadarChart series={radarSeries} axisColors={SKILL_COLORS} />
+            <RadarChart
+              series={radarSeries}
+              axisColors={SKILL_COLORS}
+              className="w-full max-w-md mx-auto"
+              labelFontSize={10.5}
+              multilineLabels
+            />
           )}
           <div className="space-y-1 text-center">
             {radarCaption ? <p className="text-xs text-wizard-ink/65">{radarCaption}</p> : null}
