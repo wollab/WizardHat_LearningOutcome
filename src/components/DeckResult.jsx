@@ -264,6 +264,28 @@ export default function DeckResult({ result, target, tasteCount, issue, onRerun,
           confidence={outcomeLens.confidence}
         />
 
+        <div className="rounded-2xl bg-white border border-wizard-ink/10 p-4 space-y-3">
+          <h3 className="text-sm font-semibold text-wizard-plum">อ่านต่อจาก outcome นี้</h3>
+          <p className="text-sm leading-6 text-wizard-ink/70">
+            ถ้าอยากตีความผลให้รอบคอบขึ้น ให้กลับไปอ่านทฤษฎีที่เกี่ยวกับการออกแบบการสอน หลักฐานเรื่องความจำ/ภาระทางความคิด
+            และการเรียนรู้ร่วมกับคนอื่น ก่อนนำผลไปใช้กับผู้เรียนจริง
+          </p>
+          <div className="grid sm:grid-cols-3 gap-2 text-sm">
+            <a className="rounded-xl border border-wizard-ink/10 bg-wizard-mist/35 p-3 hover:border-wizard-teal/50" href="https://wollab.github.io/meta-learning/paths/?utm_source=wizardhat&utm_medium=ecosystem_link&utm_campaign=result_bridge#syn-06" target="_blank" rel="noopener noreferrer" data-wol-event="ecosystem_link" data-wol-source="wizardhat-result" data-wol-target="meta-learning-pedagogy">
+              <strong className="block text-wizard-plum mb-1">Pedagogy / Design</strong>
+              <span className="text-wizard-ink/65">ครูควรนำมากแค่ไหน และต้องออกแบบ constraint อย่างไร</span>
+            </a>
+            <a className="rounded-xl border border-wizard-ink/10 bg-wizard-mist/35 p-3 hover:border-wizard-teal/50" href="https://wollab.github.io/meta-learning/paths/?utm_source=wizardhat&utm_medium=ecosystem_link&utm_campaign=result_bridge#syn-04" target="_blank" rel="noopener noreferrer" data-wol-event="ecosystem_link" data-wol-source="wizardhat-result" data-wol-target="meta-learning-evidence">
+              <strong className="block text-wizard-plum mb-1">Evidence-based Learning</strong>
+              <span className="text-wizard-ink/65">ความจำ cognitive load และ retrieval practice</span>
+            </a>
+            <a className="rounded-xl border border-wizard-ink/10 bg-wizard-mist/35 p-3 hover:border-wizard-teal/50" href="https://wollab.github.io/meta-learning/paths/?utm_source=wizardhat&utm_medium=ecosystem_link&utm_campaign=result_bridge#syn-05" target="_blank" rel="noopener noreferrer" data-wol-event="ecosystem_link" data-wol-source="wizardhat-result" data-wol-target="meta-learning-social">
+              <strong className="block text-wizard-plum mb-1">Social Learning</strong>
+              <span className="text-wizard-ink/65">การช่วยเหลือ ชุมชน และสิ่งที่เกิดระหว่างผู้เล่น</span>
+            </a>
+          </div>
+        </div>
+
         <div className="rounded-2xl bg-white border border-wizard-ink/10 p-4 space-y-4">
           <h3 className="text-sm font-semibold text-wizard-plum">คำแนะนำและข้อควรระวัง</h3>
 

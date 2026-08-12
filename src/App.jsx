@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TargetProfileForm from './components/TargetProfileForm.jsx';
 import DeckResult from './components/DeckResult.jsx';
 import CardCapture from './components/CardCapture.jsx';
@@ -26,6 +26,22 @@ export default function App() {
   const [photoStep, setPhotoStep] = useState(PHOTO_STEP.CAPTURE);
   const [detectedCardNos, setDetectedCardNos] = useState([]);
   const [photoResult, setPhotoResult] = useState(null);
+
+  useEffect(() => {
+    function handleEcosystemClick(event) {
+      const link = event.target.closest?.('a[data-wol-event]');
+      if (!link) return;
+      window.dispatchEvent(new CustomEvent('wol:ecosystem-link', {
+        detail: {
+          event: link.dataset.wolEvent,
+          source: link.dataset.wolSource || 'wizardhat',
+          target: link.dataset.wolTarget || link.href,
+        },
+      }));
+    }
+    document.addEventListener('click', handleEcosystemClick);
+    return () => document.removeEventListener('click', handleEcosystemClick);
+  }, []);
 
   function handleTargetSubmit({ targets, tasteCount: count, issue: issueText }) {
     setTarget(targets);
@@ -146,15 +162,15 @@ export default function App() {
               </p>
             </div>
             <div className="grid sm:grid-cols-3 gap-3 text-sm">
-              <a className="rounded-2xl border border-wizard-ink/10 bg-wizard-mist/35 p-3 hover:border-wizard-teal/50" href="https://wollab.github.io/WoL_GameLab/9-learning-angles/" target="_blank" rel="noopener noreferrer">
+              <a className="rounded-2xl border border-wizard-ink/10 bg-wizard-mist/35 p-3 hover:border-wizard-teal/50" href="https://wollab.github.io/WoL_GameLab/9-learning-angles/?utm_source=wizardhat&utm_medium=ecosystem_link&utm_campaign=outcome_bridge" target="_blank" rel="noopener noreferrer" data-wol-event="ecosystem_link" data-wol-source="wizardhat" data-wol-target="9-learning-angles">
                 <strong className="block text-wizard-plum mb-1">9 Learning Angles</strong>
                 <span className="text-wizard-ink/65">เริ่มจาก Learning Move ของผู้เรียน</span>
               </a>
-              <a className="rounded-2xl border border-wizard-ink/10 bg-wizard-mist/35 p-3 hover:border-wizard-teal/50" href="https://wollab.github.io/meta-learning/paths/" target="_blank" rel="noopener noreferrer">
+              <a className="rounded-2xl border border-wizard-ink/10 bg-wizard-mist/35 p-3 hover:border-wizard-teal/50" href="https://wollab.github.io/meta-learning/paths/?utm_source=wizardhat&utm_medium=ecosystem_link&utm_campaign=outcome_bridge" target="_blank" rel="noopener noreferrer" data-wol-event="ecosystem_link" data-wol-source="wizardhat" data-wol-target="meta-learning">
                 <strong className="block text-wizard-plum mb-1">Meta Learning</strong>
                 <span className="text-wizard-ink/65">อ่านทฤษฎีและหลักฐานที่เกี่ยวข้อง</span>
               </a>
-              <a className="rounded-2xl border border-wizard-ink/10 bg-wizard-mist/35 p-3 hover:border-wizard-teal/50" href="https://wollab.github.io/WoL_Tarot_of_Learning/" target="_blank" rel="noopener noreferrer">
+              <a className="rounded-2xl border border-wizard-ink/10 bg-wizard-mist/35 p-3 hover:border-wizard-teal/50" href="https://wollab.github.io/WoL_Tarot_of_Learning/?utm_source=wizardhat&utm_medium=ecosystem_link&utm_campaign=outcome_bridge" target="_blank" rel="noopener noreferrer" data-wol-event="ecosystem_link" data-wol-source="wizardhat" data-wol-target="tarot-of-learning">
                 <strong className="block text-wizard-plum mb-1">Tarot of Learning</strong>
                 <span className="text-wizard-ink/65">ใช้ตั้งคำถามสะท้อนก่อนออกแบบ</span>
               </a>
