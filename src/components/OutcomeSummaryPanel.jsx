@@ -65,6 +65,11 @@ export default function OutcomeSummaryPanel({
     <section className="rounded-2xl bg-white border border-wizard-ink/10 p-5 space-y-6">
       <SectionTitle title={title} subtitle={subtitle} />
 
+      <div className="rounded-2xl border border-wizard-teal/25 bg-wizard-mist/35 px-4 py-3 text-sm leading-6 text-wizard-ink/75">
+        ผลหน้านี้ควรอ่านเป็น <strong>สมมติฐานเพื่อออกแบบและทดสอบต่อ</strong> ไม่ใช่คำตัดสินสุดท้าย:
+        Wizard Hat แปลจากกลไกของการ์ด → สิ่งที่ผู้เล่นต้องทำ → พฤติกรรมที่น่าจะถูกฝึก → learning outcome ที่อาจเกิดขึ้น
+      </div>
+
       <div className="grid xl:grid-cols-[0.95fr_1.05fr] gap-6 items-start">
         <div className="rounded-2xl bg-wizard-mist/40 border border-wizard-ink/8 p-4 space-y-3">
           {radarImageSrc ? (

@@ -135,6 +135,33 @@ export default function App() {
   return (
     <div className="min-h-screen py-6">
       <div className="max-w-6xl mx-auto px-4">
+        <section className="rounded-3xl bg-white/85 border border-wizard-ink/10 p-5 md:p-6 mb-6 shadow-sm">
+          <p className="text-xs font-semibold tracking-[0.18em] uppercase text-wizard-teal mb-2">WoL Learning Tools</p>
+          <div className="grid lg:grid-cols-[1.1fr_1.4fr] gap-4 items-start">
+            <div>
+              <h1 className="text-2xl md:text-3xl mb-2">Wizard Hat — Learning Outcome</h1>
+              <p className="text-sm md:text-base leading-7 text-wizard-ink/70">
+                ใช้เมื่อต้องการแปลงกิจกรรม เกม หรือ deck ให้เป็นสมมติฐานเรื่อง learning outcome
+                โดยอ่านจากกลไกและพฤติกรรมที่กิจกรรมนั้นเรียกร้องจากผู้เล่น
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-3 gap-3 text-sm">
+              <a className="rounded-2xl border border-wizard-ink/10 bg-wizard-mist/35 p-3 hover:border-wizard-teal/50" href="https://wollab.github.io/WoL_GameLab/9-learning-angles/" target="_blank" rel="noopener noreferrer">
+                <strong className="block text-wizard-plum mb-1">9 Learning Angles</strong>
+                <span className="text-wizard-ink/65">เริ่มจาก Learning Move ของผู้เรียน</span>
+              </a>
+              <a className="rounded-2xl border border-wizard-ink/10 bg-wizard-mist/35 p-3 hover:border-wizard-teal/50" href="https://wollab.github.io/meta-learning/paths/" target="_blank" rel="noopener noreferrer">
+                <strong className="block text-wizard-plum mb-1">Meta Learning</strong>
+                <span className="text-wizard-ink/65">อ่านทฤษฎีและหลักฐานที่เกี่ยวข้อง</span>
+              </a>
+              <a className="rounded-2xl border border-wizard-ink/10 bg-wizard-mist/35 p-3 hover:border-wizard-teal/50" href="https://wollab.github.io/WoL_Tarot_of_Learning/" target="_blank" rel="noopener noreferrer">
+                <strong className="block text-wizard-plum mb-1">Tarot of Learning</strong>
+                <span className="text-wizard-ink/65">ใช้ตั้งคำถามสะท้อนก่อนออกแบบ</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
         <div className="rounded-2xl bg-white/80 border border-wizard-ink/10 p-2 inline-flex gap-2 mb-6">
           <button
             onClick={() => setExperience(EXPERIENCE.V1)}
