@@ -1,3 +1,5 @@
+import wizardHatBox from '../assets/wizard-hat-box.png';
+
 const SHOPEE_URL = 'https://shopee.co.th/wizards.of.learning/46454897531';
 const TAROT_URL = 'https://wollab.github.io/WoL_Tarot_of_Learning/?utm_source=wizardhat&utm_medium=website&utm_campaign=learning_outcome';
 
@@ -12,6 +14,11 @@ export default function PurchaseCta() {
         }}
       />
       <div className="relative mx-auto max-w-2xl">
+        <img
+          src={wizardHatBox}
+          alt="กล่อง Wizard Hat Starter Pack"
+          className="mx-auto mb-3 h-44 w-44 object-contain drop-shadow-[0_16px_18px_rgba(65,65,65,0.18)] md:h-56 md:w-56"
+        />
         <p className="mb-5 text-sm text-wizard-ink/70 md:text-base">
           อยากได้สำรับจริงไว้ใช้คิด หรือเป็นเกมจริง?
         </p>
