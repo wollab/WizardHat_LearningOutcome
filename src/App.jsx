@@ -5,6 +5,7 @@ import CardCapture from './components/CardCapture.jsx';
 import CardConfirmList from './components/CardConfirmList.jsx';
 import OutcomeReport from './components/OutcomeReport.jsx';
 import CaseStudyGallery from './components/CaseStudyGallery.jsx';
+import PurchaseCta from './components/PurchaseCta.jsx';
 import { runSearch } from './lib/cardSearch.js';
 import { DURATION_OPTIONS } from './lib/scoring.js';
 import { assessDeck } from './lib/assessment.js';
@@ -199,6 +200,9 @@ export default function App() {
       </div>
 
       {experience === EXPERIENCE.V1 ? renderClassicFlow() : <CaseStudyGallery />}
+      <div className="max-w-6xl mx-auto px-4 pb-10">
+        <PurchaseCta />
+      </div>
     </div>
   );
 }
